@@ -31,6 +31,14 @@ export default defineConfig({
       icpurl: "https://icp.gov.moe/?keyword=20267676",
     },
   },
+  hyc: {
+    enable: true,
+    aiSummary: {
+      enable: true,
+      title: "AI 摘要",
+      showModel: false,
+    },
+  },
   friends: {
     title: "友链",
     description: "这里是我的朋友们，欢迎互访。",
