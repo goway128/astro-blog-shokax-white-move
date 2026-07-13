@@ -143,6 +143,18 @@ const iconColor = sanitizeThemeColor(
               rel="noopener noreferrer"
               class="text-grey-5 hover:opacity-80 border-b border-dashed"
             >
+              {config.icp.icon &&
+                (config.icp.icon.startsWith("i-") ? (
+                  <div
+                    class={`${config.icp.icon} inline-block align-text-bottom mr-1`}
+                  />
+                ) : (
+                  <img
+                    src={config.icp.icon}
+                    alt="ICP"
+                    class="max-w-4 inline align-middle mr-1"
+                  />
+                ))}
               {config.icp.icpnumber}
             </a>
             {config.icp.beian && config.icp.recordcode && (

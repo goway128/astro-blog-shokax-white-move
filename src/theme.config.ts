@@ -25,7 +25,10 @@ export default defineConfig({
   footer: {
     since: 2026,
     icp: {
-      enable: false,
+      enable: true,
+      icon: "i-ri-heart-fill",
+      icpnumber: "萌ICP备20267676号",
+      icpurl: "https://icp.gov.moe/?keyword=20267676",
     },
   },
   friends: {
