@@ -22,13 +22,13 @@ Anthropic 在 2024 年 11 月开源了 Model Context Protocol，一年过去，�
 
 问题不在于工作量，而在于生态被切开。写一个内部的公司数据库查询工具，只能挂到一个客户端里。换个 LLM 应用，前面的工作等于白费。
 
-MCP 想解决的正是这件事：让能力和客户端解耦。写一次 Server，任何支持 MCP 的客户端都能挂载。
+MCP 想解决的正是这件事：`让能力和客户端解耦`。写一次 Server，任何支持 MCP 的客户端都能挂载。
 
 ## 三方模型
 
 MCP 里有三个角色：
 
-- **Host**：嵌入了大模型的应用本身，例如 Claude Desktop、Cursor、Zed。
+- **Host**：嵌入了大模型的应用本身，例如 `Claude Desktop`、`Cursor`、`Zed`。
 - **Client**：Host 内部为每个连接维护的一个实例，一个 Host 可以持有多个 Client。
 - **Server**：一个独立进程，声明自己能提供哪些工具、资源、提示词。
 
@@ -40,7 +40,7 @@ Server 有三种可暴露的东西：
 | Resources | 模型可以读取的数据 | 一份文档、一段日志、一张表 |
 | Prompts | 预设的提示词模板 | "以代码评审的口吻回复" |
 
-其中 Tools 是目前用得最广的。
+**其中 Tools 是目前用得最广的。**
 
 ## 和 Function Calling 的差别
 

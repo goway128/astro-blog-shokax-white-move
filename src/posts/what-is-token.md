@@ -44,7 +44,7 @@ BPE 的做法是折中：先按字节切，然后统计哪些相邻字节最常�
 
 ## 你可以自己数
 
-OpenAI 提供了在线工具（platform.openai.com/tokenizer），也可以用官方库本地跑：
+**OpenAI 提供了在线工具**（platform.openai.com/tokenizer），也可以用官方库本地跑：
 
 ```python
 import tiktoken
@@ -71,7 +71,7 @@ for tid in tokens:
 
 ## Token 和账单
 
-主流 API 全部按 token 计费，输入和输出通常价格不同（输出往往是输入的 3~5 倍）。一次调用的成本可以粗略估算：
+**主流 API 全部按 token 计费，输入和输出通常价格不同（输出往往是输入的 3~5 倍）**。一次调用的成本可以粗略估算：
 
 ```
 成本 = 输入 token 数 × 输入单价 + 输出 token 数 × 输出单价
