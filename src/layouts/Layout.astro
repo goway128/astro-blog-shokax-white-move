@@ -144,12 +144,12 @@ const rightSidebarTagCloud = shouldComputeRightSidebarTagCloud
   : [];
 
 const siteState = {
-  categories: allPosts.reduce((acc, post) => {
+  categories: posts.reduce((acc, post) => {
     post.data.categories?.forEach((category) => acc.add(category));
     return acc;
   }, new Set()).size,
   posts: posts.length,
-  tags: allPosts.reduce((acc, post) => {
+  tags: posts.reduce((acc, post) => {
     post.data.tags?.forEach((tag) => acc.add(tag));
     return acc;
   }, new Set()).size,

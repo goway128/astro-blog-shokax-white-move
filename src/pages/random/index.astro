@@ -2,11 +2,12 @@
 import Layout from "@/layouts/Layout.astro";
 import { getCollection } from "astro:content";
 import { t } from "@/i18n";
+import { toPostHref } from "@/toolkit/posts/url";
 
 const allPosts = await getCollection("posts");
 const postUrls = allPosts
   .filter((post) => !post.data.draft && !post.data.encrypted)
-  .map((post) => `/posts/${post.id}/`);
+  .map((post) => toPostHref(post.id));
 
 const pageTitle = t("random.title");
 const msgRedirecting = t("random.redirecting");

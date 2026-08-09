@@ -14,6 +14,7 @@ describe("url helpers", () => {
   });
 
   it("builds encoded category href with trailing slash", () => {
+    expect(toCategoryHref(["前端", "Astro"])).toBe("/categories/%E5%89%8D%E7%AB%AF/Astro/");
     expect(toCategoryHref("前端/Astro")).toBe("/categories/%E5%89%8D%E7%AB%AF%2FAstro/");
     expect(toCategoryHref("General")).toBe("/categories/General/");
   });

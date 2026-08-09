@@ -1,6 +1,8 @@
 <script lang="ts">
+  import { tick } from "svelte";
   import type { EncryptedData, TocItem } from "@/toolkit/encryption/types";
   import { decryptContent } from "@/toolkit/encryption/crypto";
+  import { initMdxComponents } from "@/toolkit/initMdxComponents";
   import { encryptedTocStore } from "@/stores/encryptedTocStore";
   import { currentLocale, getT } from "@/i18n";
   import PasswordModal from "./PasswordModal.svelte";
@@ -45,6 +47,8 @@
         encryptedTocStore.set(decryptedToc);
       }
       isDecrypted = true;
+      await tick();
+      initMdxComponents();
     } finally {
       isDecrypting = false;
     }

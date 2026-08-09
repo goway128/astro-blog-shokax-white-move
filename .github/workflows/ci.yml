@@ -46,12 +46,6 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-playwright-
 
-      - name: Install Playwright Chromium
-        run: bunx playwright install --with-deps chromium
-
-      - name: Build site
-        run: bun run build
-
       - name: Run lint
         run: bun run lint
 
@@ -60,6 +54,12 @@ jobs:
 
       - name: Run unit tests
         run: bun run test
+
+      - name: Install Playwright Chromium
+        run: bun x playwright install --with-deps chromium
+
+      - name: Build site
+        run: bun run build
 
       - name: Restore lychee cache
         uses: actions/cache@v5

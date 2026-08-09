@@ -23,6 +23,11 @@ describe("wrapCodeGroups", () => {
     expect(wrapCodeGroups(html)).toBe(html);
   });
 
+  it("混合普通内容与代码块时保持原样，避免静默丢失内容", () => {
+    const html = `<div class="code-group"><p>说明文字</p>${codeBlock("js")}</div>`;
+    expect(wrapCodeGroups(html)).toBe(html);
+  });
+
   it("单个 code-block 也生成 Tabs（客户端会隐藏 nav）", () => {
     const html = `<div class="code-group">${codeBlock("js")}</div>`;
     const out = wrapCodeGroups(html);

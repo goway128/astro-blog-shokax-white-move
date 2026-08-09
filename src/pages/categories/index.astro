@@ -22,7 +22,7 @@ publishedPosts.forEach((post) => {
 
   // Build hierarchy from category array
   categories.forEach((cat, index) => {
-    const catId = cat.toLowerCase().replaceAll(/\s+/g, "-");
+    const catId = categories.slice(0, index + 1).join("\u0000");
 
     if (!categoryMap.has(catId)) {
       categoryMap.set(catId, {
@@ -35,8 +35,7 @@ publishedPosts.forEach((post) => {
 
     // Set parent relationship (previous category in array is parent)
     if (index > 0) {
-      const parentCat = categories[index - 1];
-      const parentId = parentCat.toLowerCase().replaceAll(/\s+/g, "-");
+      const parentId = categories.slice(0, index).join("\u0000");
       categoryMap.get(catId)!.parent = parentId;
     }
 
@@ -50,7 +49,7 @@ publishedPosts.forEach((post) => {
 });
 
 // Update length counts for parent categories
-categoryMap.forEach((cat) => {
+Array.from(categoryMap.values()).toReversed().forEach((cat) => {
   if (cat.parent) {
     const parent = categoryMap.get(cat.parent);
     if (parent) {
@@ -73,7 +72,7 @@ type CategoryWithChildren = Category & { children?: CategoryWithChildren[] };
         hierarchicalCategories.map((cat: CategoryWithChildren) => (
           <div>
             <h2 class="item header">
-              <a href={toCategoryHref(cat.name)} itemprop="url">
+              <a href={toCategoryHref([cat.name])} itemprop="url">
                 {cat.name}
               </a>
               <small>( {cat.length} )</small>
@@ -83,7 +82,7 @@ type CategoryWithChildren = Category & { children?: CategoryWithChildren[] };
               cat.children.map((child: CategoryWithChildren) => (
                 <>
                   <h3 class="item section">
-                    <a href={toCategoryHref(child.name)} itemprop="url">
+                    <a href={toCategoryHref([cat.name, child.name])} itemprop="url">
                       {child.name}
                     </a>
                     <small>( {child.length} )</small>
@@ -94,7 +93,11 @@ type CategoryWithChildren = Category & { children?: CategoryWithChildren[] };
                       <div class="item normal">
                         <div class="title">
                           <a
-                            href={toCategoryHref(grandchild.name)}
+                            href={toCategoryHref([
+                              cat.name,
+                              child.name,
+                              grandchild.name,
+                            ])}
                             itemprop="url"
                           >
                             {grandchild.name}

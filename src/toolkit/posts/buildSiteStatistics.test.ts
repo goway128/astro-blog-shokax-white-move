@@ -116,4 +116,11 @@ describe("buildSiteStatistics", () => {
     expect(stats.totalCategories).toBe(3);
     expect(stats.totalTags).toBe(3);
   });
+
+  it("应该使用 UTC 月份边界", () => {
+    const stats = buildSiteStatistics([
+      createPost({ id: "boundary", date: "2025-01-01T00:30:00.000Z" }),
+    ]);
+    expect(stats.monthlyPostCounts).toEqual([{ year: 2025, month: 1, label: "2025-01", count: 1 }]);
+  });
 });
