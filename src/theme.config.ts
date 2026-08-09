@@ -83,7 +83,7 @@ export default defineConfig({
     since: 2026,
     icp: {
       enable: true,
-      icon: "https://icp.gov.moe/images/gov.svg",
+      icon: "/images/moe-icp.svg",
       icpnumber: "萌ICP备20267676号",
       icpurl: "https://icp.gov.moe/?keyword=20267676",
     },
