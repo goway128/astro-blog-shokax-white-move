@@ -10,9 +10,7 @@ draft: false
 
 Anthropic 在 2024 年 11 月开源了 Model Context Protocol，一年过去，它已经是 LLM 应用里默认要考虑的一块。这篇讲清楚它是什么、和 Function Calling 的边界在哪、以及一个最小的 Server 长什么样。
 
-## 一句话定义
-
-> MCP（Model Context Protocol）是一个开放协议，规定了嵌入了大模型的应用如何和外部进程互相声明能力、传输数据、调用工具。
+**MCP（Model Context Protocol）是一个开放协议，规定了嵌入了大模型的应用如何和外部进程互相声明能力、传输数据、调用工具。**
 
 它不是模型能力，也不是框架，只是一份"接线规范"。任何应用只要按这份规范说话，就能挂上任何按这份规范提供能力的进程。
 

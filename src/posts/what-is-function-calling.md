@@ -10,9 +10,7 @@ draft: false
 
 Function Calling 是 OpenAI 在 2023 年 6 月推出的能力，Anthropic 那边叫 Tool Use，Google 叫 Function Declarations，指的都是同一件事。它是 Agent、MCP、以及绝大多数"能干活"的 LLM 应用的地基。
 
-## 一句话定义
-
-> Function Calling 是让模型根据一组工具描述，返回一段结构化 JSON 表示"我要调用哪个工具、传什么参数"的能力。
+**Function Calling 是让模型根据一组工具描述，返回一段结构化 JSON 表示"我要调用哪个工具、传什么参数"的能力。**
 
 它不改变模型的推理，它改变的是**模型输出的形状**。原本模型只会吐自然语言，加了 Function Calling 后，它可以在需要时吐一段严格符合 schema 的 JSON。
 
