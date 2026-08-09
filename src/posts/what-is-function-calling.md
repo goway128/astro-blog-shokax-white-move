@@ -97,14 +97,14 @@ print(final.choices[0].message.content)
 
 ```json
 {
-    "name": "search",
-    "description": "搜索",
-    "parameters": {
-        "type": "object",
-        "properties": {
-            "q": {"type": "string"}
-        }
+  "name": "search",
+  "description": "搜索",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "q": { "type": "string" }
     }
+  }
 }
 ```
 
@@ -114,23 +114,24 @@ print(final.choices[0].message.content)
 
 ```json
 {
-    "name": "search_internal_docs", // [!code ++]
-    "description": "在公司内部文档库中检索。适用于用户问及内部流程、规范、产品细节时。不要用于外部知识查询。", // [!code ++]
-    "parameters": {
-        "type": "object",
-        "properties": {
-            "query": { // [!code ++]
-                "type": "string", // [!code ++]
-                "description": "查询关键词，用自然语言短语" // [!code ++]
-            },
-            "top_k": {
-                "type": "integer",
-                "description": "返回结果数，默认 5，最多 20",
-                "default": 5
-            }
-        },
-        "required": ["query"]
-    }
+  "name": "search_internal_docs", // [!code ++]
+  "description": "在公司内部文档库中检索。适用于用户问及内部流程、规范、产品细节时。不要用于外部知识查询。", // [!code ++]
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "query": {
+        // [!code ++]
+        "type": "string", // [!code ++]
+        "description": "查询关键词，用自然语言短语" // [!code ++]
+      },
+      "top_k": {
+        "type": "integer",
+        "description": "返回结果数，默认 5，最多 20",
+        "default": 5
+      }
+    },
+    "required": ["query"]
+  }
 }
 ```
 
@@ -177,10 +178,10 @@ Function Calling 的底层能力是"让模型输出符合 schema 的 JSON"，这
 
 区别在意图：
 
-| 能力 | 目的 |
-|------|------|
-| Function Calling | 模型自主决定**何时**输出一段结构化 JSON 表示"调工具" |
-| Structured Output | 强制模型的**最终回复**符合某个 schema |
+| 能力              | 目的                                                 |
+| ----------------- | ---------------------------------------------------- |
+| Function Calling  | 模型自主决定**何时**输出一段结构化 JSON 表示"调工具" |
+| Structured Output | 强制模型的**最终回复**符合某个 schema                |
 
 两者可以叠加：一个工具的返回可以强制走 Structured Output，让内部流转更稳。
 

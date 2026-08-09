@@ -71,6 +71,7 @@ description: 当用户让我写 Git 提交信息,或者整理 commit message 时
 `<type>(<scope>): <subject>`
 
 常用 type:
+
 - feat: 新功能
 - fix: 修 bug
 - docs: 文档
@@ -79,6 +80,7 @@ description: 当用户让我写 Git 提交信息,或者整理 commit message 时
 - chore: 杂项
 
 要求:
+
 - subject 用英文,小写开头,不加句号
 - 超过 72 个字符时,补充 body 段落说明动机和影响
 ```

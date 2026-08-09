@@ -176,6 +176,13 @@
     "error": "Incorrect password, please try again",
     "passwordRequired": "Please enter password"
   },
+  "externalLink": {
+    "title": "Leaving Site?",
+    "lead": "You are about to visit an external website:",
+    "hint": "Please ensure you trust the destination before proceeding.",
+    "cancel": "Cancel",
+    "confirm": "Continue"
+  },
   "moments": {
     "title": "Moments",
     "noContent": "No moments available",

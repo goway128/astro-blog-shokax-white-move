@@ -161,6 +161,9 @@ const widgetPosts = createWidgetPosts(posts);
 import CodeBlock from "@/components/CodeBlock.svelte";
 import ImageZoom from "@/components/ImageZoom.svelte";
 import SearchPage from "@/components/search/SearchPage.svelte";
+import ExternalLinkDialog from "@/components/ExternalLinkDialog.svelte";
+
+const siteUrl = Astro.site?.toString() ?? "";
 ---
 
 <!doctype html>
@@ -330,6 +333,7 @@ import SearchPage from "@/components/search/SearchPage.svelte";
       <ImageZoom client:idle />
     </div>
     <FloatingToolbar client:idle nyxPlayer={themeConfig.nyxPlayer} />
+    <ExternalLinkDialog client:load siteUrl={siteUrl} />
   </body>
 </html>
 

@@ -176,6 +176,13 @@
     "error": "密码错误，请重试",
     "passwordRequired": "请输入密码"
   },
+  "externalLink": {
+    "title": "即将离开本站",
+    "lead": "你正要访问一个外部网站：",
+    "hint": "请确认目标可信后再继续。",
+    "cancel": "返回",
+    "confirm": "继续访问"
+  },
   "moments": {
     "title": "动态",
     "noContent": "暂无动态",

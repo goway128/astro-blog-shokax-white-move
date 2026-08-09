@@ -120,7 +120,7 @@ Rouge 写不出这些，只能靠自定义 CSS 类模仿。
 
 ```markdown
 > 这是一段提示
-{: .prompt-info }
+> {: .prompt-info }
 ```
 
 新站用 CommonMark directive：
@@ -135,13 +135,13 @@ Rouge 写不出这些，只能靠自定义 CSS 类模仿。
 
 ## 包管理与运行时
 
-| 项 | 旧站 | 新站 |
-|----|------|------|
-| 语言运行时 | Ruby 3.x | Bun 1.3.12 |
-| 包管理器 | Bundler + RubyGems | Bun 内置 |
-| 依赖清单 | Gemfile / Gemfile.lock | package.json / bun.lock |
-| 首次安装耗时 | 分钟级（部分 gem 需要本机编译） | 秒级 |
-| 常用命令 | `bundle exec jekyll serve` | `bun dev` |
+| 项           | 旧站                            | 新站                    |
+| ------------ | ------------------------------- | ----------------------- |
+| 语言运行时   | Ruby 3.x                        | Bun 1.3.12              |
+| 包管理器     | Bundler + RubyGems              | Bun 内置                |
+| 依赖清单     | Gemfile / Gemfile.lock          | package.json / bun.lock |
+| 首次安装耗时 | 分钟级（部分 gem 需要本机编译） | 秒级                    |
+| 常用命令     | `bundle exec jekyll serve`      | `bun dev`               |
 
 Bun 除了当包管理器还当运行时。dev、build、test 都由 `bun run xxx` 拉起，不用另装 Node。
 
@@ -188,4 +188,3 @@ Chirpy 的所有"交互"都是脚本挂页面：夜间模式切换、目录高�
 **如果你打算在页面里加互动组件、自定义 Markdown 语法、细控构建流程，Astro 让这些变得便宜。代价是要能忍受 Node / Bun 生态本身的抖动。**
 
 **两代博客都能"发一篇 Markdown"，差别在这条链路继续往下延伸时会长成什么样。选栈的时候别按流行度选，按你打算做的事选。只写字的人在 Chirpy 上照样过得很好；想动手改主题、加功能的人在 Astro 上手更快。**
-

@@ -176,6 +176,13 @@
     "error": "密碼錯誤，請重試",
     "passwordRequired": "請輸入密碼"
   },
+  "externalLink": {
+    "title": "即將離開本站",
+    "lead": "你正要造訪一個外部網站：",
+    "hint": "請確認目標可信後再繼續。",
+    "cancel": "返回",
+    "confirm": "繼續造訪"
+  },
   "moments": {
     "title": "動態",
     "noContent": "暫無動態",
