@@ -12,9 +12,7 @@ draft: false
 
 两边写的都是 Markdown，但从写作者往下一层看，技术栈几乎没有重合。
 
-## 一句话对比
-
-旧站跑在 Ruby 上，新站跑在 Bun 上。旧站模板是 Liquid，新站模板是 Astro 组件加 Svelte。旧站样式是 SCSS，新站样式是 UnoCSS 原子类。中间那一层 Markdown 处理，两边也换了引擎。
+**旧站跑在 Ruby 上，新站跑在 Bun 上。旧站模板是 Liquid，新站模板是 Astro 组件加 Svelte。旧站样式是 SCSS，新站样式是 UnoCSS 原子类。中间那一层 Markdown 处理，两边也换了引擎。**
 
 ## 生成器：Jekyll 7 vs Astro 7
 
@@ -185,16 +183,9 @@ Chirpy 的所有"交互"都是脚本挂页面：夜间模式切换、目录高�
 
 ## 什么情况下应该选哪个
 
-如果你写的是纯文字、图片、代码块，Chirpy 已经够用，Ruby 生态成熟、依赖少、部署路径最短。学一次 Bundler 之后基本不用回头。
+**如果你写的是纯文字、图片、代码块，Chirpy 已经够用，Ruby 生态成熟、依赖少、部署路径最短。学一次 Bundler 之后基本不用回头。**
 
-如果你打算在页面里加互动组件、自定义 Markdown 语法、细控构建流程，Astro 让这些变得便宜。代价是要能忍受 Node / Bun 生态本身的抖动。
+**如果你打算在页面里加互动组件、自定义 Markdown 语法、细控构建流程，Astro 让这些变得便宜。代价是要能忍受 Node / Bun 生态本身的抖动。**
 
-## 写在最后
+**两代博客都能"发一篇 Markdown"，差别在这条链路继续往下延伸时会长成什么样。选栈的时候别按流行度选，按你打算做的事选。只写字的人在 Chirpy 上照样过得很好；想动手改主题、加功能的人在 Astro 上手更快。**
 
-两代博客都能"发一篇 Markdown"，差别在这条链路继续往下延伸时会长成什么样。选栈的时候别按流行度选，按你打算做的事选。只写字的人在 Chirpy 上照样过得很好；想动手改主题、加功能的人在 Astro 上手更快。
-
-> 相关链接：
-> - 旧站仓库：github.com/goway128/goway128two
-> - 新站仓库：github.com/goway128/astro-blog-shokax-white-move
-> - Chirpy 主题：github.com/cotes2020/jekyll-theme-chirpy
-> - Astro 官网：astro.build

@@ -159,9 +159,3 @@ def fetch(url: str, max_retries: int = 3):
 幻觉不会因为模型更大而消失，只会变得更隐蔽。一个总是 60% 幻觉的模型很好防，因为用户天然警惕。一个 95% 时间都对的模型反而危险——用户放松警惕，那剩下 5% 的错误就直接过关了。
 
 对使用者来说，"知道它会错、知道它在哪些场景更容易错、知道怎么设计防御"，比追逐更强的模型更重要。
-
-> 参考资料：
-> - Ji et al. *Survey of Hallucination in Natural Language Generation* (2023)
-> - Vectara HHEM Leaderboard: github.com/vectara/hallucination-leaderboard
-> - Huang et al. *A Survey on Hallucination in Large Language Models* (2023)
-> - OpenAI *Why language models hallucinate* (2025)

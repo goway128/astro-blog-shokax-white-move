@@ -124,8 +124,3 @@ Anthropic 把 Skills 铺到了几乎所有 Claude 产品里:
 Prompt 是个人的笔记,Skills 更像团队的标准作业程序。当越来越多人开始把自己的工作流写成 Skill 时,我们可能会看到一个新的生态:不是模型本身在卷,而是围绕模型的"专业知识包"在卷。
 
 如果你也在用 Claude,可以试着把自己每天重复的一两件事写成一个 Skill。哪怕只是一个简单的 Markdown 文件,也能在下一次工作时少敲十几行 Prompt。
-
-> 参考资料:
-> - Anthropic 官方博客 *Introducing Agent Skills* (2025-10-16)
-> - Anthropic Engineering: *Equipping agents for the real world with Agent Skills*
-> - Agent Skills 开放标准: agentskills.io

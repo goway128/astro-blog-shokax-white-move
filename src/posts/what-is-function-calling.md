@@ -210,8 +210,3 @@ Function Calling 的底层能力是"让模型输出符合 schema 的 JSON"，这
 Function Calling 是 Agent 时代的基础设施。它本身不复杂，一份好的 schema 加一段循环就是全部。但 90% 的 Agent 问题——工具选错、参数传乱、循环卡死——最后追根究底都会追回到 schema 写得不够清楚，或者错误没有回传给模型。
 
 先把工具的 name、description、参数 schema 磨到位，再考虑上任何框架和抽象。这是唯一值得反复投入时间的地方。
-
-> 参考资料：
-> - OpenAI *Function calling and other API updates* (2023-06-13)
-> - Anthropic *Tool use with Claude* 官方文档
-> - OpenAI Structured Outputs 官方文档

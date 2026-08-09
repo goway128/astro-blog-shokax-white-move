@@ -165,7 +165,3 @@ MCP 的价值不在协议本身有多精巧，而在它让 AI 应用第一次有
 
 对开发者来说，MCP 值得作为默认选项：新工具优先考虑封成 Server，即便暂时只在一个应用里用，未来也留着一条通路。
 
-> 参考资料：
-> - Model Context Protocol 官方文档：modelcontextprotocol.io
-> - Anthropic *Introducing the Model Context Protocol* (2024-11-25)
-> - MCP Python SDK: github.com/modelcontextprotocol/python-sdk

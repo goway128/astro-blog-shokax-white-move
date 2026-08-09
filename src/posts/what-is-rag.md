@@ -171,8 +171,3 @@ RAG 的技术门槛不高，做出一个能跑的原型只要几十行代码。�
 
 模型每一代都在变强，RAG 的角色也在调整。上下文变长后有人喊"RAG 死了"，但只要私域数据、审计需求、成本约束存在，RAG 就还有位置。它不是终极方案，只是一个务实的中间态。
 
-> 参考资料：
-> - Lewis et al. *Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks* (2020, Meta AI)
-> - Gao et al. *Retrieval-Augmented Generation for Large Language Models: A Survey* (2023)
-> - Anthropic *Contextual Retrieval* (2024-09)
-> - LangChain / LlamaIndex 官方文档

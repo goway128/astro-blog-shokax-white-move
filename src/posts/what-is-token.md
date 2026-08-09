@@ -125,9 +125,3 @@ for tid in tokens:
 Token 不是一个 AI 使用者能绕开的抽象。上下文窗口、API 账单、生成速度、模型的"记忆力"，本质上都是 token 的表达。理解它怎么切、怎么算，比死背哪个模型多大窗口有用得多。
 
 下次看到一个 200k token 的模型时，先算一下这够写多少中文、多少代码、能塞下多少文档，再决定值不值这个价。
-
-> 参考资料：
-> - OpenAI Tokenizer：platform.openai.com/tokenizer
-> - tiktoken：github.com/openai/tiktoken
-> - Sennrich et al. *Neural Machine Translation of Rare Words with Subword Units* (BPE 原始论文)
-> - Liu et al. *Lost in the Middle: How Language Models Use Long Contexts* (2023)
