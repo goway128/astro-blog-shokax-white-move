@@ -43,6 +43,13 @@ function collectConfigIcons() {
     });
   }
 
+  // Footer 备案图标：只有 i- 开头的 UnoCSS 图标 class 才需要注入 safelist，
+  // 图片 URL 由 <img> 直接渲染，无需 UnoCSS 参与。
+  const icpIcon = themeConfig.footer?.icp?.icon;
+  if (icpIcon && icpIcon.startsWith("i-")) {
+    pushNormalizedIcon(icons, icpIcon);
+  }
+
   return icons;
 }
 
