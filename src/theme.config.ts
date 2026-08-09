@@ -8,6 +8,63 @@ export default defineConfig({
     subtitle: "伤心桥下春波绿，曾是惊鸿照影来。",
     logo: "🍥",
   },
+  nav: [
+    {
+      href: "/",
+      text: "首页",
+      icon: "i-ri-home-line",
+    },
+    {
+      href: "/about/",
+      text: "关于",
+      icon: "i-ri-user-3-line",
+    },
+    {
+      href: "/random/",
+      text: "文章",
+      icon: "i-ri-quill-pen-fill",
+      dropbox: {
+        enable: true,
+        items: [
+          {
+            href: "/categories/",
+            text: "分类",
+            icon: "i-ri-book-shelf-fill",
+          },
+          {
+            href: "/tags/",
+            text: "标签",
+            icon: "i-ri-price-tag-3-fill",
+          },
+          {
+            href: "/archives/",
+            text: "归档",
+            icon: "i-ri-archive-line",
+          },
+        ],
+      },
+    },
+    {
+      href: "/friends/",
+      text: "友链",
+      icon: "i-ri-link",
+    },
+    {
+      href: "/moments/",
+      text: "动态",
+      icon: "i-ri-chat-quote-line",
+    },
+    {
+      href: "/statistics/",
+      text: "统计",
+      icon: "i-ri-bar-chart-box-line",
+    },
+    {
+      href: "https://status.life-white.uk/",
+      text: "白の监控",
+      icon: "i-ri-computer-line",
+    },
+  ],
   sidebar: {
     author: "white",
     description: "喵喵喵",
