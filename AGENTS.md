@@ -50,3 +50,14 @@
   只有 `.friend-title` 是真实 `<a>`，通过 `::after { position: absolute; inset: 0 }`
   伪元素铺满整卡，实现点击整张卡片跳转，同时保留一次拦截触发
 - 头像与站点预览图不再是独立 `<a>`，避免出现"点头像时绕过弹窗"的死角
+
+## 移动端侧栏滚动
+
+- `src/components/sidebar/Sidebar.svelte` 移动端（`max-width: 1023px`）走
+  抽屉布局，只有内部滚动，绝不让 body 一起滑
+- 高度使用 `100dvh`（动态视口高度）避免 iOS Safari 地址栏收合导致的
+  “底部被裁掉、内部又不触发滚动”问题；保留 `100vh` 作为老浏览器兜底
+- aside 是 `display: flex; flex-direction: column`；
+  `.panels { min-height: 0; flex: 1 1 auto }` 让面板占满剩余空间；
+  `.panels > .inner { overflow-y: auto; overscroll-behavior: contain }` 是真正的滚动容器
+- 桌面端 affix 行为不变，仍使用 `height: 100vh`（PC 无地址栏动态变化问题）

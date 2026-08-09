@@ -255,15 +255,20 @@
       display: none;
       position: fixed;
       right: 0;
+      top: 0;
       background: var(--grey-1);
       box-shadow: var(--shadow-sidebar-mobile);
       z-index: var(--z-sidebar);
       width: 280px;
-      height: 100%;
+      /* 用 dvh 避免 iOS 地址栏动态高度陷阱，vh 作为老浏览器兜底 */
+      height: 100vh;
+      height: 100dvh;
+      overflow: hidden;
     }
 
     #sidebar.on {
-      display: block;
+      display: flex;
+      flex-direction: column;
     }
   }
 
@@ -311,10 +316,27 @@
   @media (max-width: 1023px) {
     #sidebar > .inner {
       width: 100%;
+      /* 抽屉布局：顶部 tabs、中部 panels 撑满、底部 quick */
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      margin-top: 0;
+      height: 100%;
+      min-height: 0;
+    }
+
+    /* 覆盖桌面下的 min-height: 100vh，才能让内部 auto 滚动生效 */
+    .panels {
+      padding: 1rem 0 1rem;
+      min-height: 0;
+      flex: 1 1 auto;
     }
 
     .panels > .inner {
       margin-top: 0;
+      height: 100%;
+      /* 防止滚到边缘时把 body 也一起滑走 */
+      overscroll-behavior: contain;
     }
   }
 
