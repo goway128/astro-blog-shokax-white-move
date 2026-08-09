@@ -8,7 +8,7 @@ cover: ../assets/images/cover-4.avif
 draft: false
 ---
 
-我有两个博客。旧的那个还在跑，用的是 Chirpy Jekyll 主题，地址 https://goway128.club/goway128two/ ，仓库 goway128/goway128two 。新的这个就是你正在看的站，用 Astro 加 ShokaX 风格重写，仓库 goway128/astro-blog-shokax-white-move 。
+我有两个博客。旧的那个还在跑，用的是 Chirpy Jekyll 主题，地址 https://old.life-white.uk/ ，仓库 goway128/goway128two 。新的这个就是你正在看的站，用 Astro 加 ShokaX 风格重写，仓库 goway128/astro-blog-shokax-white-move 。
 
 两边写的都是 Markdown，但从写作者往下一层看，技术栈几乎没有重合。
 
