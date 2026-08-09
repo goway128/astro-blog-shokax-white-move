@@ -30,9 +30,9 @@ export function structurePostsByDate(posts: Post[], config: ArchiveConfig = {}):
 
   posts.forEach((post) => {
     const date = post.data.date;
-    const year = date.getFullYear();
-    const month = date.getMonth() + 1;
-    const day = date.getDate();
+    const year = date.getUTCFullYear();
+    const month = date.getUTCMonth() + 1;
+    const day = date.getUTCDate();
 
     if (!grouped[year]) {
       grouped[year] = {

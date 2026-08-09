@@ -292,7 +292,7 @@ const initAllTabs = () => {
   });
 };
 
-const initMdxComponents = () => {
+export const initMdxComponents = () => {
   initQuiz();
   initAllTabs();
 };
@@ -316,4 +316,6 @@ const setupMdxComponents = () => {
   mdxInitBound = true;
 };
 
-setupMdxComponents();
+if (typeof document !== "undefined") {
+  setupMdxComponents();
+}

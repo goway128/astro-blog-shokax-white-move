@@ -33,9 +33,13 @@ export function toTagHref(name: string): string {
   return slug ? `/tags/${encodeURIComponent(slug)}/` : "/tags/";
 }
 
-export function toCategoryHref(name: string): string {
-  const normalized = (name || "").trim();
-  return normalized ? `/categories/${encodeURIComponent(normalized)}/` : "/categories/";
+export function toCategoryHref(nameOrPath: string | string[]): string {
+  const segments = (Array.isArray(nameOrPath) ? nameOrPath : [nameOrPath])
+    .map((segment) => (segment || "").trim())
+    .filter(Boolean);
+  return segments.length > 0
+    ? `/categories/${segments.map(encodeURIComponent).join("/")}/`
+    : "/categories/";
 }
 
 export function toPostHref(idOrSlug: string): string {

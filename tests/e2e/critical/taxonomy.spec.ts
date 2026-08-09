@@ -23,6 +23,10 @@ test("@critical 标签与分类页可进入具体列表", async ({ page }) => {
   await expect(
     page.locator(".timeline article.item.normal, .timeline .item.normal .title").first(),
   ).toBeVisible();
+
+  const nestedCategoryResponse = await page.goto("/categories/%E7%A7%91%E6%8A%80/AI/");
+  expect(nestedCategoryResponse?.ok()).toBeTruthy();
+  await expect(page.locator(".timeline article.item.normal").first()).toBeVisible();
 });
 
 test("@critical 文章上下篇导航链接可用", async ({ page }) => {

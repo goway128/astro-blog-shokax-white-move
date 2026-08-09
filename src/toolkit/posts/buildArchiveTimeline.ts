@@ -13,7 +13,7 @@ export interface ArchiveTimelineItem<TPost extends ArchivePostLike> {
 }
 
 function getMonthKey(date: Date): string {
-  return `${date.getFullYear()}-${date.getMonth() + 1}`;
+  return `${date.getUTCFullYear()}-${date.getUTCMonth() + 1}`;
 }
 
 export function buildArchiveTimeline<TPost extends ArchivePostLike>(
@@ -33,8 +33,8 @@ export function buildArchiveTimeline<TPost extends ArchivePostLike>(
 
   return posts.map((post) => {
     const date = post.data.date;
-    const year = date.getFullYear();
-    const month = date.getMonth() + 1;
+    const year = date.getUTCFullYear();
+    const month = date.getUTCMonth() + 1;
     const monthKey = getMonthKey(date);
     const showMonthSection = monthKey !== previousMonthKey;
 

@@ -45,8 +45,8 @@ export function buildSiteStatistics(
 
   publishedPosts.forEach((post) => {
     const date = post.data.date;
-    const year = date.getFullYear();
-    const month = date.getMonth() + 1;
+    const year = date.getUTCFullYear();
+    const month = date.getUTCMonth() + 1;
     const monthKey = `${year}-${String(month).padStart(2, "0")}`;
     monthlyMap.set(monthKey, (monthlyMap.get(monthKey) || 0) + 1);
 

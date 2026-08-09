@@ -852,7 +852,17 @@ function mergeThemeConfig<T>(defaults: T, overrides?: ThemeUserConfig<T>): T {
 }
 
 export function defineConfig(config: ShokaXThemeUserConfig = {}): ShokaXThemeConfig {
-  return normalizeThemeConfigColors(
+  const merged = normalizeThemeConfigColors(
     mergeThemeConfig<ShokaXThemeConfig>(DEFAULT_THEME_CONFIG, config),
   );
+
+  const pageSize = merged.home?.pageSize;
+  if (!Number.isInteger(pageSize) || !Number.isFinite(pageSize) || pageSize! <= 0) {
+    merged.home = {
+      ...merged.home,
+      pageSize: DEFAULT_THEME_CONFIG.home?.pageSize ?? 10,
+    };
+  }
+
+  return merged;
 }

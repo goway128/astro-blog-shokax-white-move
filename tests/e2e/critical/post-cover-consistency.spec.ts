@@ -11,7 +11,7 @@ function extractUrlFromBackgroundImage(style: string | null): string | null {
 }
 
 test("@critical 文章内页头图应优先使用当前文章 cover", async ({ page }) => {
-  const response = await page.goto(POSTS.helloWorld);
+  const response = await page.goto(POSTS.publicPost);
   expect(response?.ok()).toBeTruthy();
 
   const headerCover = page.locator("#imgs .single-image");
@@ -34,14 +34,16 @@ test("@critical 文章内页头图应优先使用当前文章 cover", async ({ p
   expect(headerCoverUrl).toContain("cover-1");
 });
 
-test("@critical 文章内页下一页封面应与目标文章 cover 一致", async ({ page }) => {
-  const response = await page.goto(POSTS.helloWorld);
+test("@critical 文章内页相邻文章封面应与目标文章 cover 一致", async ({ page }) => {
+  const response = await page.goto(POSTS.publicPost);
   expect(response?.ok()).toBeTruthy();
 
-  const nextLink = page.locator(`.post-nav a[rel="next"][href="${POSTS.gettingStarted}"]`);
-  await expect(nextLink).toBeVisible();
+  const adjacentLink = page.locator(
+    `.post-nav a[href="${POSTS.adjacentPublicPost}"]`,
+  );
+  await expect(adjacentLink).toBeVisible();
 
-  const nextBackgroundImage = await nextLink.evaluate((element) => {
+  const nextBackgroundImage = await adjacentLink.evaluate((element) => {
     return window.getComputedStyle(element).backgroundImage;
   });
 

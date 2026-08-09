@@ -74,4 +74,18 @@ describe("structurePostsByDate", () => {
     const result = structurePostsByDate([]);
     expect(Object.keys(result).length).toBe(0);
   });
+
+  it("uses UTC boundaries for archive grouping", () => {
+    const boundaryPost = {
+      ...posts[0],
+      id: "utc-boundary",
+      data: {
+        ...posts[0].data,
+        date: new Date("2025-01-01T00:30:00Z"),
+      },
+    };
+
+    const result = structurePostsByDate([boundaryPost]);
+    expect(result[2025].monthlyData[1].posts).toHaveLength(1);
+  });
 });

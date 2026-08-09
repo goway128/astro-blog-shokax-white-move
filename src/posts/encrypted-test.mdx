@@ -1,0 +1,55 @@
+---
+title: 加密文章测试
+date: 2026-02-27
+encrypted: true
+password: test123
+tags:
+  - 测试
+categories:
+  - 教程
+---
+
+这是一篇加密文章的测试内容。
+
+## 加密功能说明
+
+这篇文章使用了 AES-GCM 加密算法进行加密，需要输入正确的密码才能查看内容。
+
+### 功能特点
+
+1. **整篇文章加密** - 所有内容在构建时加密
+2. **独立密码** - 每篇文章可以有自己的密码
+3. **SEO 隐藏** - 加密文章不会被搜索引擎索引
+4. **TOC 支持** - 解密后目录会自动显示
+
+### 使用方法
+
+在文章的 frontmatter 中添加：
+
+```yaml
+encrypted: true
+password: your_password
+```
+
+<div class="tabs" data-default-value="first">
+  <div class="nav" aria-label="Tabs 导航"><ul role="tablist"></ul></div>
+  <div class="tabs-panels">
+    <section class="tab-item" data-tab-label="第一个" data-tab-value="first">
+      解锁后的第一个标签页。
+    </section>
+    <section class="tab-item" data-tab-label="第二个" data-tab-value="second">
+      解锁后的第二个标签页。
+    </section>
+  </div>
+</div>
+
+<div class="quiz-item single" data-quiz-type="single">
+  <div class="quiz-question">解锁后的交互是否可用？</div>
+  <div class="quiz-options">
+    <div class="quiz-option" data-correct="true">可以</div>
+    <div class="quiz-option">不可以</div>
+  </div>
+  <div class="quiz-answer">解密完成后会重新初始化 MDX 交互。</div>
+</div>
+
+密码：test123

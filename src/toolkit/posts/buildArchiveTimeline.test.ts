@@ -68,4 +68,9 @@ describe("buildArchiveTimeline", () => {
     expect(result[0].monthPostCount).toBe(1);
     expect(result[1].monthPostCount).toBe(1);
   });
+
+  it("uses UTC at month boundaries", () => {
+    const result = buildArchiveTimeline([createPost("boundary", "2025-01-01T00:30:00Z")]);
+    expect(result[0]).toMatchObject({ year: 2025, month: 1 });
+  });
 });

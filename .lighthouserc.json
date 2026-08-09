@@ -5,7 +5,7 @@
         "preset": "desktop"
       },
       "staticDistDir": "dist",
-      "url": ["http://localhost/", "http://localhost/posts/hello-world/"],
+      "url": ["http://localhost/", "http://localhost/posts/my-first-post/"],
       "numberOfRuns": 3
     },
     "assert": {

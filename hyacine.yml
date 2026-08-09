@@ -19,7 +19,7 @@ fonts:
     type: monospace
 
 images:
-  - path: src/assets/avatar.avif
+  - path: src/assets/avatar.jpg
   - path: src/assets/images/cover-1.avif
   - path: src/assets/images/cover-2.avif
   - path: src/assets/images/cover-3.avif

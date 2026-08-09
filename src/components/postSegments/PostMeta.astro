@@ -12,6 +12,7 @@ const { date, showLabel = false, wordCount, readTime } = Astro.props;
 
 const formatDate = (d: Date) =>
   d.toLocaleDateString(currentLocale, {
+    timeZone: "UTC",
     year: "numeric",
     month: "long",
     day: "numeric",
@@ -23,7 +24,7 @@ const formatReadTime = (minutes: number) => `${minutes} ${t("post.minutes")}`;
 <div class={`post-meta text-grey-5${showLabel ? " full" : ""}`}>
   <span
     class="meta-item"
-    title={`${t("post.publishedAt")}：${date.toLocaleString()}`}
+    title={`${t("post.publishedAt")}：${date.toLocaleString(currentLocale, { timeZone: "UTC" })}`}
   >
     <span class="icon">
       <i class="i-ri-calendar-line"></i>
