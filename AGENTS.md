@@ -47,9 +47,20 @@
 ## 友链卡片可点区域
 
 - `src/components/friends/FriendLinks.astro` 使用 stretched-link 模式：
-  只有 `.friend-title` 是真实 `<a>`，通过 `::after { position: absolute; inset: 0 }`
+  只有 `.friend-title` 是真实 `<a>`，通过 `.stretched-link::after { position: absolute; inset: 0 }`
   伪元素铺满整卡，实现点击整张卡片跳转，同时保留一次拦截触发
 - 头像与站点预览图不再是独立 `<a>`，避免出现"点头像时绕过弹窗"的死角
+- 卡片顶部原有的 `::before` 主题色渐变条已移除，视觉更简洁；
+  卡片右上角的 `::after` 径向渐变晕染保留
+
+## Footer 备案图标
+
+- `src/components/footer/Footer.astro` 支持两种 `theme.config.ts` → `footer.icp.icon` 写法：
+  - `i-*` 开头字符串：走 UnoCSS 图标 class，需要在 `uno.config.ts`
+    的 `collectConfigIcons()` 内被 safelist 覆盖（已包含）
+  - 其它字符串：作为图片 URL 走 `<img>`
+- 官方图标（如萌 ICP `gov.svg`）优先自托管到 `public/images/`，
+  引用路径写 `/images/moe-icp.svg`，避免访客网络屏蔽或外部防盗链
 
 ## 移动端侧栏滚动
 

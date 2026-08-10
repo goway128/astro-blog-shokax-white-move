@@ -91,19 +91,6 @@ const { links } = Astro.props;
       border-color 0.3s ease;
   }
 
-  .friend-card::before {
-    content: "";
-    position: absolute;
-    inset: 0 0 auto;
-    height: 0.26rem;
-    background: linear-gradient(
-      90deg,
-      color-mix(in srgb, var(--friend-accent) 88%, white),
-      color-mix(in srgb, var(--friend-accent) 62%, var(--color-orange))
-    );
-    z-index: var(--z-content);
-  }
-
   .friend-card::after {
     content: "";
     position: absolute;
