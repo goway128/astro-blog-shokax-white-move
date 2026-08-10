@@ -99,6 +99,8 @@ export default defineConfig({
   friends: {
     title: "友链",
     description: "这里是我的朋友们，欢迎互访。",
+    avatar:
+      "https://img.life-white.uk/file/AgACAgQAAyEGAATrQHCPAAMMagQFi_l2KCPVk8AITeioEXXq9WUAAl8Paxto0yFQOrKizTsT7tQBAAMCAAN4AAM7BA.jpg",
     links: [
       {
         url: "https://mahiro.uk/",
