@@ -257,3 +257,5 @@ These projects in particular have provided tremendous support during development
 - [Mizuki](https://github.com/matsuzaka-yuki/Mizuki): directly inspired the team's Astro migration and provided an excellent example to follow
 - [Bun](https://bun.sh/): the runtime used in this project, fast and delightful to use
 - [Shoka](https://github.com/amehime/hexo-theme-shoka): the origin of ShokaX — without Shoka, ShokaX would not exist
+
+源仓库：https://github.com/theme-shoka-x/astro-blog-shokax

@@ -253,3 +253,5 @@ ShokaX 开发组向所有 ShokaX 在过去、现在和未来的使用过与可�
 - [Mizuki](https://github.com/matsuzaka-yuki/Mizuki)：直接启发了开发组进行 Astro 迁移，为我们的迁移提供了极好的榜样
 - [Bun](https://bun.sh/)：本项目使用的运行时，高性能而易用
 - [Shoka](https://github.com/amehime/hexo-theme-shoka)：ShokaX 的起源，没有 Shoka 便不可能有 ShokaX
+
+源仓库 https://github.com/theme-shoka-x/astro-blog-shokax
