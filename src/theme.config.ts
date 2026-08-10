@@ -138,6 +138,14 @@ export default defineConfig({
         avatar:
           "https://weavatar.com/avatar/d252655d40d6874417a720bad0a6c5f77f8f6a1fd2f882f8f338402dc37e4190?s=640.jpg",
       },
+      {
+        url: "https://clb.pages.dev",
+        title: "学海无涯",
+        desc: "停止摆烂，背水一战",
+        author: "学海无涯",
+        avatar:
+          "https://s2.loli.net/2024/06/02/wuJknzxaFigDSdL.gif", 
+      },
     ],
   },
 });
