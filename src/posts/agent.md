@@ -1,5 +1,5 @@
 ---
-title: 什么是 Agent？从概念到实践的一次梳理
+title: 谈谈 AI Agent
 date: 2026-06-23
 description: 把 Agent 这个词拆开讲清楚：它是什么，和 Chatbot、Workflow、RPA 有什么区别，现在能做什么、不能做什么。
 tags: [Agent, LLM]

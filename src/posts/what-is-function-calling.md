@@ -1,5 +1,5 @@
 ---
-title: 什么是 Function Calling：让模型说结构化的话
+title: 谈谈 Function Calling
 date: 2026-08-04
 description: Function Calling 让大模型能返回结构化的工具调用请求，而不是自由文本。这篇讲清楚它怎么工作、schema 怎么写、以及为什么它是 Agent 时代最重要的一层能力。
 tags: [Function Calling, LLM, Tool Use]

@@ -1,5 +1,5 @@
 ---
-title: 什么是 RAG：给大模型接上一个外挂知识库
+title: 谈谈 RAG
 date: 2026-08-03
 description: RAG 把检索和生成拼在一起，让模型能回答训练数据里不存在的问题。这篇讲清楚它的三段结构、为什么要 chunk、以及从最朴素的实现到加了 rerank 的形态之间发生了什么。
 tags: [RAG, 检索, LLM]

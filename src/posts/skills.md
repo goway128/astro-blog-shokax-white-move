@@ -1,5 +1,5 @@
 ---
-title: 什么是 Skills：让 AI 拥有"专长"的新范式
+title: 谈谈 Skills
 date: 2026-06-24
 description: Skills 是一组装着指令、脚本和资源的文件夹，让 Claude 在需要时自动加载，把自己变成某个领域的"专家"。
 tags: [Skills, Claude, AI]

@@ -1,5 +1,5 @@
 ---
-title: 什么是 Token：大模型眼里的最小单位
+title: 谈谈 Token
 date: 2026-08-02
 description: Token 是大模型读写文本的最小单元。这篇讲清楚 token 是怎么切出来的、为什么英文一个词一个 token 而中文一个字可能占两个、以及为什么它决定了你的账单。
 tags: [Token, LLM, 分词]

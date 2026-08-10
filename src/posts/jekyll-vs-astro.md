@@ -1,5 +1,5 @@
 ---
-title: 从 Jekyll 到 Astro：两个博客的技术栈对比
+title: 从 Jekyll 到 Astro
 date: 2026-08-06
 description: 我的旧博客用 Chirpy Jekyll 主题，新博客换成了 Astro + Svelte 5 + UnoCSS。这篇把两代技术栈拆开摆在一起，比较它们的语言、构建、样式、Markdown 处理和部署方式。
 tags: [Jekyll, Astro, Svelte, 博客, 技术栈]
@@ -14,7 +14,7 @@ draft: false
 
 **旧站跑在 Ruby 上，新站跑在 Bun 上。旧站模板是 Liquid，新站模板是 Astro 组件加 Svelte。旧站样式是 SCSS，新站样式是 UnoCSS 原子类。中间那一层 Markdown 处理，两边也换了引擎。**
 
-## 生成器：Jekyll 7 vs Astro 7
+## Jekyll 7 vs Astro 7
 
 Jekyll 是 2008 年出的 Ruby 静态站点生成器。Chirpy 主题把它包装成一份现成模板，Gemfile 里锁 `jekyll-theme-chirpy ~> 7.0`，再拉一批 gem：`jekyll-paginate`、`jekyll-seo-tag`、`jekyll-archives`、`jekyll-sitemap`。整个 build 是一个 Ruby 进程从 `_posts` 读文件，套 Liquid 模板，写出 `_site`。
 
@@ -22,7 +22,7 @@ Astro 是 2021 年出的静态优先框架，2024 年之后加了岛屿架构、
 
 从写作者视角看这一层几乎没差别：往 `_posts/` 或 `src/posts/` 扔一个 `.md`，剩下的都是别人的问题。从改主题的人视角看差别很大：一边写 Ruby，一边写 TypeScript。
 
-## 主要语言：Ruby vs TypeScript
+## Ruby vs TypeScript
 
 旧站的技术栈是 Ruby 加 Liquid。Chirpy 内部十多个 Ruby 插件把 Jekyll 的扩展点用满了，想改点什么就得动 Ruby。
 
@@ -30,7 +30,7 @@ Astro 是 2021 年出的静态优先框架，2024 年之后加了岛屿架构、
 
 写文章两边一样。改主题时，我从 Ruby 生态整体切到了 JavaScript 生态。
 
-## 模板：Liquid vs Astro + Svelte
+## Liquid vs Astro + Svelte
 
 Chirpy 的每个页面是 HTML 混 Liquid：
 

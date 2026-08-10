@@ -1,5 +1,5 @@
 ---
-title: 什么是 MCP：让 AI 应用共享工具的协议
+title: 谈谈 MCP
 date: 2026-08-01
 description: MCP 是一个开放协议，让不同的 LLM 应用可以复用同一套工具。这篇讲清楚它的三方模型、与 Function Calling 的边界、以及一个最小 Server 长什么样。
 tags: [MCP, LLM, 协议]
