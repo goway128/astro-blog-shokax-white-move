@@ -15,11 +15,11 @@ export const aboutAuthorAvatar = avatar.src;
 export const aboutDialogNodes = [
   {
     id: "intro",
-    text: "你好呀，欢迎来到白の小站喵～想先了解哪一部分呢？",
+    text: "你好呀，欢迎来到白の小站喵～想先了解哪一部分喵？",
     options: [
       {
         label: "你是谁？",
-        reply: "先介绍一下你自己吧喵。",
+        reply: "先介绍一下你自己喵。",
         nextId: "identity",
       },
       {
@@ -37,6 +37,17 @@ export const aboutDialogNodes = [
         reply: "如果我想联系你，应该怎么做喵？",
         nextId: "contact",
       },
+      {
+        label: "常用的代码编辑器是什么？",
+        reply: "你常用的代码编辑器是什么喵？",
+        nextId: "code-enable",
+      },
+      {
+        label: "常用的AI工具是什么？",
+        reply: "你常用的AI工具是什么喵？",
+        nextId: "AI_AGENTS",
+      },
+      
     ],
   },
   {
@@ -44,7 +55,7 @@ export const aboutDialogNodes = [
     text: "我是一名喜欢 AI 的小孩喵～平时最大的兴趣就是到处研究、瞎折腾各种好玩的东西喵。",
     options: [
       {
-        label: "返回话题菜单",
+        label: "返回话题菜单喵",
         reply: "换个话题喵。",
         nextId: "intro",
       },
@@ -55,7 +66,7 @@ export const aboutDialogNodes = [
     text: "这个博客看心情写喵～想到什么写什么，AI、技术、日常都有可能出现喵。",
     options: [
       {
-        label: "返回话题菜单",
+        label: "返回话题菜单喵",
         reply: "了解了喵，看看其他问题。",
         nextId: "intro",
       },
@@ -66,7 +77,7 @@ export const aboutDialogNodes = [
     text: "这个站点用的是 Astro + Svelte + ShokaX 主题喵，部署在 Vercel 上，加载很快的喵～",
     options: [
       {
-        label: "返回话题菜单",
+        label: "返回话题菜单喵",
         reply: "技术栈很清晰喵，回到主菜单。",
         nextId: "intro",
       },
@@ -77,8 +88,30 @@ export const aboutDialogNodes = [
     text: "可以通过邮箱 1314520@life-white.uk，或者 GitHub（goway128）找到我喵～",
     options: [
       {
-        label: "返回话题菜单",
-        reply: "收到喵，我再看看其他内容。",
+        label: "返回话题菜单喵",
+        reply: "收到喵",
+        nextId: "intro",
+      },
+    ],
+  },
+   {
+    id: "code-enable",
+    text: "是 Visual Studio Code 和 CLion 喵～",
+    options: [
+      {
+        label: "返回话题菜单喵",
+        reply: "收到喵",
+        nextId: "intro",
+      },
+    ],
+  },
+  {
+    id: "AI_AGENTS",
+    text: "是 Opencode 和 CC Switch 喵～",
+    options: [
+      {
+        label: "返回话题菜单喵",
+        reply: "收到喵",
         nextId: "intro",
       },
     ],
