@@ -424,6 +424,15 @@ export interface FriendLinkConfig {
   siteImage?: string;
 }
 
+export interface FriendGroupConfig {
+  /** 分组标题（如「个人博客」「工具与资源」） */
+  title: string;
+  /** 分组描述（可选，出现在标题下方） */
+  description?: string;
+  /** 该分组下的友链列表 */
+  links: FriendLinkConfig[];
+}
+
 interface FriendsConfig {
   /** 友链页面标题 */
   title?: string;
@@ -442,7 +451,13 @@ interface FriendsConfig {
   color?: ThemeColorValue;
   /** 友链配置示例使用的站点预览图（可选） */
   siteImage?: string;
-  /** 友链列表 */
+  /**
+   * 友链分组（可选）。
+   * - 存在时优先渲染分组视图，每组一个标题 + 一格卡片
+   * - 与 links 二选一即可，若两者都填则以 groups 为准
+   */
+  groups?: FriendGroupConfig[];
+  /** 友链列表（未使用 groups 时的扁平列表） */
   links: FriendLinkConfig[];
 }
 

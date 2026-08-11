@@ -53,6 +53,17 @@
 - 卡片顶部原有的 `::before` 主题色渐变条已移除，视觉更简洁；
   卡片右上角的 `::after` 径向渐变晕染保留
 
+## 友链分组
+
+- `theme.config.ts` 的 `friends` 支持两种数据源：
+  - `groups: FriendGroupConfig[]` —— 分组视图，每组一个标题 + 一格卡片
+  - `links: FriendLinkConfig[]` —— 扁平列表（未分组时使用）
+  - 两者可共存，`groups` 存在且非空时优先渲染；否则回落到 `links`
+- 分组结构：`{ title: string; description?: string; links: FriendLinkConfig[] }`
+- 分组标题 `.friend-group-title` 左侧带主题色小条，配色沿用主色渐变；
+  多组之间自动加 `2rem` 间距，视觉分隔明显但保持统一卡片风格
+- 未来若需要"折叠 / 单独排序 / 分组独立主题色"，扩展 `FriendGroupConfig` 即可
+
 ## Footer 备案图标
 
 - `src/components/footer/Footer.astro` 支持两种 `theme.config.ts` → `footer.icp.icon` 写法：

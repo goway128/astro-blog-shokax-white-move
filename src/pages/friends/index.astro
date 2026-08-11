@@ -10,6 +10,7 @@ import astroConfig from "../../../astro.config.mjs";
 
 const friendsConfig = themeConfig.friends;
 const friendLinks = friendsConfig?.links ?? [];
+const friendGroups = friendsConfig?.groups;
 const pageTitle = friendsConfig?.title ?? "友链";
 const pageDescription =
   friendsConfig?.description ?? "卡片式展示，支持站点预览与主题色点缀。";
@@ -56,7 +57,7 @@ const friendsJson = JSON.stringify(friendsSnippet, null, 2);
     </section>
     <section class="friend-section friend-links-section">
       <h3>友链列表</h3>
-      <FriendLinks links={friendLinks} />
+      <FriendLinks links={friendLinks} groups={friendGroups} />
     </section>
     {
       friendsConfig?.comments && commentsConfig.enable !== false && (

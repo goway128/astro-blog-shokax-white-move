@@ -9,64 +9,128 @@ export interface FriendLink {
   siteImage?: string;
 }
 
-interface Props {
+export interface FriendGroup {
+  title: string;
+  description?: string;
   links: FriendLink[];
 }
 
-const { links } = Astro.props;
+interface Props {
+  /** 扁平列表（未分组时使用） */
+  links?: FriendLink[];
+  /** 分组列表（存在时优先使用） */
+  groups?: FriendGroup[];
+}
+
+const { links = [], groups } = Astro.props;
+
+// 有分组时使用分组，否则回落到单组渲染（保持向后兼容）
+const renderGroups: FriendGroup[] =
+  groups && groups.length > 0 ? groups : [{ title: "", links }];
 ---
 
-<div class="friend-links">
-  {
-    links.map((link) => (
-      <article
-        class="friend-card"
-        style={`--friend-accent: ${link.color || "var(--color-blue)"};`}
-      >
-        {link.siteImage && (
-          <div class="site-preview" aria-hidden="true">
-            <img
-              src={link.siteImage}
-              alt=""
-              loading="lazy"
-              decoding="async"
-            />
-            <span class="site-preview-mask">访问站点</span>
-          </div>
-        )}
-        <div class="friend-body">
-          <div class="friend-avatar">
-            <img
-              src={link.avatar}
-              alt={`${link.author} 头像`}
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
-          <div class="friend-content">
-            <div class="friend-title-row">
-              <a
-                class="friend-title stretched-link"
-                href={link.url}
-                target="_blank"
-                rel="noreferrer"
-                aria-label={`访问 ${link.author} 的站点：${link.title}`}
-              >
-                {link.title}
-              </a>
+{
+  renderGroups.map((group) => (
+    <section class="friend-group">
+      {group.title && (
+        <header class="friend-group-header">
+          <h4 class="friend-group-title">{group.title}</h4>
+          {group.description && (
+            <p class="friend-group-desc">{group.description}</p>
+          )}
+        </header>
+      )}
+      <div class="friend-links">
+        {group.links.map((link) => (
+          <article
+            class="friend-card"
+            style={`--friend-accent: ${link.color || "var(--color-blue)"};`}
+          >
+            {link.siteImage && (
+              <div class="site-preview" aria-hidden="true">
+                <img
+                  src={link.siteImage}
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+                />
+                <span class="site-preview-mask">访问站点</span>
+              </div>
+            )}
+            <div class="friend-body">
+              <div class="friend-avatar">
+                <img
+                  src={link.avatar}
+                  alt={`${link.author} 头像`}
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="friend-content">
+                <div class="friend-title-row">
+                  <a
+                    class="friend-title stretched-link"
+                    href={link.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`访问 ${link.author} 的站点：${link.title}`}
+                  >
+                    {link.title}
+                  </a>
+                </div>
+                <div class="friend-meta">
+                  <span class="friend-author">by {link.author}</span>
+                </div>
+                <p class="friend-desc">{link.desc}</p>
+              </div>
             </div>
-            <div class="friend-meta">
-              <span class="friend-author">by {link.author}</span>
-            </div>
-            <p class="friend-desc">{link.desc}</p>
-          </div>
-        </div>
-      </article>
-    ))
-  }
-</div>
+          </article>
+        ))}
+      </div>
+    </section>
+  ))
+}
 
 <style>
+  .friend-group + .friend-group {
+    margin-top: 2rem;
+  }
+
+  .friend-group-header {
+    margin-bottom: 1rem;
+    padding-bottom: 0.55rem;
+    border-bottom: 1px solid var(--grey-2);
+  }
+
+  .friend-group-title {
+    margin: 0;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--grey-7);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .friend-group-title::before {
+    content: "";
+    display: inline-block;
+    width: 0.3rem;
+    height: 1rem;
+    border-radius: 999px;
+    background: linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--color-pink) 88%, white),
+      color-mix(in srgb, var(--color-pink) 62%, var(--color-orange))
+    );
+  }
+
+  .friend-group-desc {
+    margin: 0.35rem 0 0;
+    font-size: 0.88rem;
+    color: var(--grey-5);
+  }
+
   .friend-links {
     display: grid;
     gap: 1.25rem;
