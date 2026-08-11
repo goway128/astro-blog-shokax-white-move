@@ -88,6 +88,37 @@
 
 ## 开发日志
 
+### 2026-08-11 — 外链弹窗文案萌系化
+
+**改动路径**
+
+- `src/i18n/locales/zh-CN.json` — `externalLink.title` / `lead` 加"喵"尾，删除 `hint`
+- `src/i18n/locales/zh-TW.json` — 同上（繁体版本）
+- `src/i18n/locales/ja.json` — 同上（にゃ 尾）
+- `src/i18n/locales/en.json` — 同上（nya 尾）
+- `src/components/ExternalLinkDialog.svelte` — 删除 `<p class="dialog-hint">` 及配套 `.dialog-hint` CSS
+
+**说明**
+
+- 弹窗定位为温和提示而非警告，去掉"请确认目标可信后再继续"这类硬邦邦的引导句
+- `title` 与 `lead` 全部改为带语气尾（喵 / にゃ / nya），四种语言保持一致
+- `urlLabel` 未使用；实际 URL 展示走 `<p class="dialog-url">` 直接渲染
+- i18n key `externalLink.hint` 已从组件与四语言 JSON 一同移除，避免残留死键
+
+### 2026-08-11 — 友链卡片主题色
+
+**改动路径**
+
+- `src/theme.config.ts` — 6 位个人博客与 Svelte / UnoCSS / Astro 分别配 `color`
+
+**说明**
+
+- 主题本已内置 `color` 字段（`FriendLinks.astro:47` 通过 `--friend-accent` 消费），
+  之前未设置时全部回落到 `var(--color-blue)`，视觉上千篇一律
+- 配色遵循站点意象或品牌色，可选值：`--color-{red,pink,orange,yellow,green,aqua,blue,purple,grey}`，
+  也支持任意 CSS 颜色（如 `#ff6b9d`）
+- 变量 `--friend-accent` 影响卡片边框、作者标签、悬停晕染与外发光，整体统一
+
 ### 2026-08-11 — 友链分组支持
 
 **改动路径**
