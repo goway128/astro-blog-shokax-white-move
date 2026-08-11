@@ -177,9 +177,8 @@
     "passwordRequired": "请输入密码"
   },
   "externalLink": {
-    "title": "即将离开本站",
-    "lead": "你正要访问一个外部网站：",
-    "hint": "请确认目标可信后再继续。",
+    "title": "即将离开本站喵~",
+    "lead": "你点击的链接会跳转到外部网站喵：",
     "cancel": "返回",
     "confirm": "继续访问"
   },

@@ -83,7 +83,6 @@
     </h3>
     <p class="dialog-lead">{t("externalLink.lead")}</p>
     <p class="dialog-url">{pending.url}</p>
-    <p class="dialog-hint">{t("externalLink.hint")}</p>
     <div class="dialog-actions">
       <button type="button" class="btn btn-cancel" onclick={onCancel}>
         {t("externalLink.cancel")}
@@ -142,13 +141,6 @@
     font-family: var(--pf-mono, ui-monospace, SFMono-Regular, Menlo, monospace);
     overflow-wrap: anywhere;
     line-height: 1.5;
-  }
-
-  .dialog-hint {
-    margin: 0 0 1.15rem;
-    font-size: 0.85rem;
-    color: var(--grey-5, #8b949e);
-    line-height: 1.6;
   }
 
   .dialog-actions {

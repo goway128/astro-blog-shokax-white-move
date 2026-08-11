@@ -177,9 +177,8 @@
     "passwordRequired": "Please enter password"
   },
   "externalLink": {
-    "title": "Leaving Site?",
-    "lead": "You are about to visit an external website:",
-    "hint": "Please ensure you trust the destination before proceeding.",
+    "title": "Leaving site, nya~",
+    "lead": "This link goes to an external website, nya:",
     "cancel": "Cancel",
     "confirm": "Continue"
   },
