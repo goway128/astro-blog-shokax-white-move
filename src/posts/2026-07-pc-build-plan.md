@@ -4,7 +4,7 @@ date: 2026-08-12
 description: 从 2026 年 4 月开始攒清单，到 7 月 4 日装机完成的一次台式配置记录。包括选件思路、大陆行情、清单前后变化，以及用了一个多月之后的体验反馈。
 tags: [装机, DIY, 台式电脑]
 categories: [硬件, 折腾]
-cover: ../assets/images/cover-4.avif
+cover: ../assets/images/cover-14.avif
 draft: false
 ---
 
