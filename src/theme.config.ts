@@ -113,6 +113,7 @@ export default defineConfig({
             desc: "一个本科计算机学生",
             author: "Smirnova Oyama",
             avatar: "https://mahiro.uk/content/nekoxun.jpg",
+            color: "var(--color-purple)",
           },
           {
             url: "https://luciferxzy.me/",
@@ -120,6 +121,7 @@ export default defineConfig({
             desc: "不要回头看",
             author: "Lucifer",
             avatar: "https://a1.boltp.com/2026/05/06/69fb09fbe2356.jpg",
+            color: "var(--color-red)",
           },
           {
             url: "https://www.qingfengnb.cn/",
@@ -127,6 +129,7 @@ export default defineConfig({
             desc: "茫茫人海，多么幸运才能遇见你！",
             author: "轻风",
             avatar: "https://img.qingfengnb.cn/LightPicture/2025/07/bec6eb9625656d60.jpg",
+            color: "var(--color-aqua)",
           },
           {
             url: "https://www.imaegoo.com/",
@@ -134,6 +137,7 @@ export default defineConfig({
             desc: "iMaeGoo's Blog",
             author: "iMaeGoo",
             avatar: "https://cdn.jsdelivr.net/npm/imaegoo/avatar.jpg",
+            color: "var(--color-blue)",
           },
           {
             url: "https://blog.cuteleaf.cn",
@@ -142,6 +146,7 @@ export default defineConfig({
             author: "夏夜流萤",
             avatar:
               "https://weavatar.com/avatar/d252655d40d6874417a720bad0a6c5f77f8f6a1fd2f882f8f338402dc37e4190?s=640.jpg",
+            color: "var(--color-yellow)",
           },
           {
             url: "https://clb.pages.dev",
@@ -149,6 +154,7 @@ export default defineConfig({
             desc: "停止摆烂，背水一战",
             author: "学海无涯",
             avatar: "https://s2.loli.net/2024/06/02/wuJknzxaFigDSdL.gif",
+            color: "var(--color-green)",
           },
         ],
       },
