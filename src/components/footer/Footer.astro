@@ -98,7 +98,10 @@ const iconColor = sanitizeThemeColor(
       {
         config.powered && (
           <div class="powered-by block my-2 text-xs">
-            {t("footer.poweredBy")}{" "}
+            <span class="post-meta-item-icon mr-0 inline">
+              <div class="i-simple-icons-astro inline-block align-text-bottom text-1rem" />
+            </span>
+            <span> Frame </span>
             <a
               href="https://astro.build"
               target="_blank"
@@ -106,8 +109,12 @@ const iconColor = sanitizeThemeColor(
               class="hover:opacity-80 border-b border-dashed"
             >
               Astro
-            </a>{" "}
-            {t("footer.and")}{" "}
+            </a>
+            <span class="mx-2" />
+            <span class="post-meta-item-icon mr-0 inline">
+              <div class="i-ri-github-fill inline-block align-text-bottom text-1rem" />
+            </span>
+            <span> Theme </span>
             <a
               href="https://github.com/theme-shoka-x/astro-blog-shokax"
               target="_blank"
@@ -116,8 +123,7 @@ const iconColor = sanitizeThemeColor(
               class="hover:opacity-80 border-b border-dashed"
             >
               ShokaX
-            </a>{" "}
-            {t("footer.poweredSuffix")}
+            </a>
           </div>
         )
       }
