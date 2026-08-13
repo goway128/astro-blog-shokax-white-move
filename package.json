@@ -60,6 +60,7 @@
   },
   "devDependencies": {
     "@iconify-json/ri": "^1.2.10",
+    "@iconify-json/simple-icons": "^1.2.93",
     "@lhci/cli": "^0.15.1",
     "@playwright/test": "^1.61.1",
     "@shikijs/colorized-brackets": "^4.3.1",

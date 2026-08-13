@@ -88,6 +88,21 @@
 
 ## 开发日志
 
+### 2026-08-11 — 页脚 Powered By 换官方品牌 icon
+
+**改动路径**
+
+- `src/components/footer/Footer.astro` — Powered By 段重写：`[Astro logo] Frame Astro, [GitHub logo] Theme ShokaX`
+- `package.json` / `bun.lock` — 新增 dev 依赖 `@iconify-json/simple-icons`
+
+**说明**
+
+- 原文案「由 Astro 和 ShokaX 主题强力驱动」通过 i18n 键 `footer.poweredBy` / `and` / `poweredSuffix` 拼装，改动后直接内联文本，不再走 i18n
+- Frame 使用 `i-simple-icons-astro`（Astro 官方火箭 logo），需要 `@iconify-json/simple-icons` 图标集
+- Theme 使用 `i-ri-github-fill`（remixicon 已装，链到主题 GitHub 仓库）
+- 两个 icon 都是 Astro 组件里的静态 class，`extractorSvelte()` + Astro 扫描能识别，无需加 UnoCSS safelist
+- Simple Icons 图标集包含几乎所有主流品牌 logo（Astro / Svelte / Vite / Bun 等），后续友链或其他位置想用品牌图标可直接 `i-simple-icons-<slug>`
+
 ### 2026-08-11 — 外链弹窗文案萌系化
 
 **改动路径**

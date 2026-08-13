@@ -44,6 +44,7 @@
       },
       "devDependencies": {
         "@iconify-json/ri": "^1.2.10",
+        "@iconify-json/simple-icons": "^1.2.93",
         "@lhci/cli": "^0.15.1",
         "@playwright/test": "^1.61.1",
         "@shikijs/colorized-brackets": "^4.3.1",
@@ -264,6 +265,8 @@
     "@hyacine/site-uptime": ["@hyacine/site-uptime@0.0.3", "https://registry.npmmirror.com/@hyacine/site-uptime/-/site-uptime-0.0.3.tgz", { "dependencies": { "@hyacine/core": "0.0.3", "@hyacine/helper": "0.0.3" } }, "sha512-cuvTAwhDvoFfFnhCRaVMYTl+N536PFyu/QvhVDglwhHZi5hmSphfVxVhOcZf/c9fb176gCofbp+T4Ed3p2n74w=="],
 
     "@iconify-json/ri": ["@iconify-json/ri@1.2.10", "https://registry.npmmirror.com/@iconify-json/ri/-/ri-1.2.10.tgz", { "dependencies": { "@iconify/types": "*" } }, "sha512-WWMhoncVVM+Xmu9T5fgu2lhYRrKTEWhKk3Com0KiM111EeEsRLiASjpsFKnC/SrB6covhUp95r2mH8tGxhgd5Q=="],
+
+    "@iconify-json/simple-icons": ["@iconify-json/simple-icons@1.2.93", "", { "dependencies": { "@iconify/types": "*" } }, "sha512-/XhANjfGYOuqvSR3TmUnkQkINvQ4GVjVuukvymRbxtVFBvIq/yiXJqCDycKcQPT401OYT9H2vIY6ihAlz1QIAw=="],
 
     "@iconify/types": ["@iconify/types@2.0.0", "https://registry.npmmirror.com/@iconify/types/-/types-2.0.0.tgz", {}, "sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg=="],
 
