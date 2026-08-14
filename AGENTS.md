@@ -88,6 +88,24 @@
 
 ## 开发日志
 
+### 2026-08-14 — 新增隐私政策页面与顶部导航入口
+
+**改动路径**
+
+- `src/theme.config.ts` — 顶部 `nav` 数组在"统计"和"白の监控"之间插入"隐私政策"项，图标 `i-ri-shield-user-line`，路径 `/privacy/`
+- `src/pages/privacy/index.astro` — 新增页面，参照 `about/index.astro` 结构，根据 `currentLocale` 动态加载对应语言的 MDX 内容
+- `src/content/privacy.zh-CN.mdx` — 简体中文版隐私政策，正式书面语措辞
+- `src/content/privacy.en.mdx` — 英文版隐私政策，与中文版内容对齐
+
+**设计要点**
+
+- 采用「独立页面」而非「文章 post」方案：避免污染文章列表、RSS、归档、sitemap 文章段
+- 页面自身仍复用 `PostHeader` / `PostFooter` / `Breadcrumb`，保持视觉与其他内容页一致
+- 中英双语通过 `if (currentLocale === "zh-CN")` 动态 `import` 对应 MDX，切语言即换内容
+- 未挂 Waline 评论区（隐私政策类页面不需要）
+- 文案按行业惯例组织：信息收集 / 评论功能 / Cookies / 第三方服务 / 安全承诺 / 更新 / 联系方式共 7 章
+- 语气正式、书面，避免萌系语气尾；生效日期显式标注在文末
+
 ### 2026-08-11 — 页脚 Powered By 换官方品牌 icon
 
 **改动路径**

@@ -60,6 +60,11 @@ export default defineConfig({
       icon: "i-ri-bar-chart-box-line",
     },
     {
+      href: "/privacy/",
+      text: "隐私政策",
+      icon: "i-ri-shield-user-line",
+    },
+    {
       href: "https://status.life-white.uk/",
       text: "白の监控",
       icon: "i-ri-computer-line",

@@ -1,0 +1,102 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Breadcrumb from "@/components/post/Breadcrumb.astro";
+import PostHeader from "@/components/post/PostHeader.astro";
+import PostFooter from "@/components/post/PostFooter.astro";
+import { currentLocale } from "@/i18n";
+import themeConfig from "@/theme.config";
+
+import "@/styles/post.css";
+import "@/styles/spoiler.css";
+
+let PrivacyContent: any;
+let privacyFrontmatter: any;
+
+if (currentLocale === "zh-CN") {
+  const module = await import("@/content/privacy.zh-CN.mdx");
+  PrivacyContent = module.default;
+  privacyFrontmatter = module.frontmatter;
+} else {
+  const module = await import("@/content/privacy.en.mdx");
+  PrivacyContent = module.default;
+  privacyFrontmatter = module.frontmatter;
+}
+
+interface PrivacyFrontmatter {
+  title?: string;
+  description?: string;
+  date?: string | Date;
+  updated?: string | Date;
+}
+
+const frontmatter = (privacyFrontmatter ?? {}) as PrivacyFrontmatter;
+
+const parseDate = (value: string | Date | undefined, fallback: Date) => {
+  if (value instanceof Date && !Number.isNaN(value.getTime())) {
+    return value;
+  }
+
+  if (typeof value === "string") {
+    const parsed = new Date(value);
+    if (!Number.isNaN(parsed.getTime())) {
+      return parsed;
+    }
+  }
+
+  return fallback;
+};
+
+const fallbackDate = new Date();
+const title = frontmatter.title || "隐私政策";
+const description = frontmatter.description || "隐私政策页面";
+const publishDate = parseDate(frontmatter.date, fallbackDate);
+const updatedDate = frontmatter.updated
+  ? parseDate(frontmatter.updated, publishDate)
+  : undefined;
+
+const postPath = "/privacy/";
+const permalink = import.meta.env.SITE
+  ? new URL(postPath, import.meta.env.SITE).toString()
+  : postPath;
+
+const siteConfig = themeConfig.sidebar || {};
+const author = siteConfig.author || "Author";
+const siteName = themeConfig.siteName || "Site";
+---
+
+<Layout pageTitle={title}>
+  <Fragment slot="head">
+    <meta name="description" content={description} />
+  </Fragment>
+
+  <div class="article wrap">
+    <Breadcrumb isHome={false} />
+
+    <article
+      itemscope
+      itemtype="http://schema.org/Article"
+      class="post block"
+      data-pagefind-body
+      lang={currentLocale}
+    >
+      <link itemprop="mainEntityOfPage" href={permalink} />
+
+      <PostHeader title={title} date={publishDate} />
+
+      <div class="body md" itemprop="articleBody">
+        <PrivacyContent />
+      </div>
+
+      <PostFooter
+        date={publishDate}
+        updated={updatedDate}
+        permalink={permalink}
+        title={title}
+        author={author}
+        siteName={siteName}
+        showCopyright={true}
+        showReward={false}
+      />
+    </article>
+  </div>
+</Layout>
