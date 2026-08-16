@@ -161,6 +161,14 @@ export default defineConfig({
             avatar: "https://s2.loli.net/2024/06/02/wuJknzxaFigDSdL.gif",
             color: "var(--color-green)",
           },
+          {
+            url: "https://blog.caotx.cn/",
+            title: "小曹同学",
+            desc: "春祺夏安 秋绥冬禧",
+            author: "小曹同学",
+            avatar: "https://pic.caotx.cn/home/friends/avatars_0_myweb.webp",
+            color: "var(--color-yellow)",
+          },
         ],
       },
       {
