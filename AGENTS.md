@@ -93,7 +93,7 @@
 **改动路径**
 
 - `src/theme.config.ts` — 顶部 `nav` 数组在"统计"和"白の监控"之间插入"隐私政策"项，图标 `i-ri-shield-user-line`，路径 `/privacy/`
-- `src/pages/privacy/index.astro` — 新增页面，参照 `about/index.astro` 结构，根据 `currentLocale` 动态加载对应语言的 MDX 内容
+- `src/pages/privacy/index.astro` — 新增页面，参照 `about/index.astro` 结构，根据 `currentLocale` 动态加载对应语言的 MDX 内容；末尾条件渲染 Waline 评论区
 - `src/content/privacy.zh-CN.mdx` — 简体中文版隐私政策，正式书面语措辞
 - `src/content/privacy.en.mdx` — 英文版隐私政策，与中文版内容对齐
 
@@ -102,9 +102,15 @@
 - 采用「独立页面」而非「文章 post」方案：避免污染文章列表、RSS、归档、sitemap 文章段
 - 页面自身仍复用 `PostHeader` / `PostFooter` / `Breadcrumb`，保持视觉与其他内容页一致
 - 中英双语通过 `if (currentLocale === "zh-CN")` 动态 `import` 对应 MDX，切语言即换内容
-- 未挂 Waline 评论区（隐私政策类页面不需要）
+- 挂 Waline 评论区（与 About / Friends / 文章页一致），`pagePath="/privacy/"` 独立评论线程
 - 文案按行业惯例组织：信息收集 / 评论功能 / Cookies / 第三方服务 / 安全承诺 / 更新 / 联系方式共 7 章
 - 语气正式、书面，避免萌系语气尾；生效日期显式标注在文末
+
+**待办**
+
+- 目前 `theme.config.ts` 未显式配置 `comments`，走默认 `enable: false`，评论区代码就绪但暂不渲染
+- 后续启用步骤：部署 Waline 后端 → 在 `theme.config.ts` 加 `comments: { enable: true, waline: { serverURL: "..." } }`
+- 一旦开启，全站已挂评论的页面（About / Friends / 文章 / Privacy）会同步生效
 
 ### 2026-08-11 — 页脚 Powered By 换官方品牌 icon
 

@@ -69,6 +69,11 @@ export default defineConfig({
       text: "白の监控",
       icon: "i-ri-computer-line",
     },
+    {
+      href: "https://blog.life-white.uk/",
+      text: "白の博客-001",
+      icon: "i-ri-link",
+    },
   ],
   sidebar: {
     author: "white",

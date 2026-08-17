@@ -3,6 +3,7 @@ import Layout from "@/layouts/Layout.astro";
 import Breadcrumb from "@/components/post/Breadcrumb.astro";
 import PostHeader from "@/components/post/PostHeader.astro";
 import PostFooter from "@/components/post/PostFooter.astro";
+import WalineComments from "@/components/post/WalineComments.svelte";
 import { currentLocale } from "@/i18n";
 import themeConfig from "@/theme.config";
 
@@ -62,6 +63,8 @@ const permalink = import.meta.env.SITE
 const siteConfig = themeConfig.sidebar || {};
 const author = siteConfig.author || "Author";
 const siteName = themeConfig.siteName || "Site";
+const commentsConfig = themeConfig.comments || {};
+const walineConfig = commentsConfig.waline || {};
 ---
 
 <Layout pageTitle={title}>
@@ -99,4 +102,19 @@ const siteName = themeConfig.siteName || "Site";
       />
     </article>
   </div>
+
+  {
+    commentsConfig.enable !== false && (
+      <div id="comments" class="comment">
+        <WalineComments
+          client:visible
+          serverURL={walineConfig.serverURL}
+          lang={walineConfig.lang || currentLocale}
+          dark={walineConfig.dark}
+          path={walineConfig.path}
+          pagePath={postPath}
+        />
+      </div>
+    )
+  }
 </Layout>
