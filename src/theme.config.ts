@@ -118,6 +118,14 @@ export default defineConfig({
         description: "认识的朋友们，欢迎互访。",
         links: [
           {
+            url: "https://www.10dianai.com",
+            title: "10dian-AI",
+            desc: "AI、二次元、游戏、各种你喜欢的",
+            author: "10dian",
+            avatar: "http://img.10dianai.com/10dianai-w.jpg",
+            color: "var(--color-blue)",
+          },         
+          {
             url: "https://mahiro.uk/",
             title: "Smirnova Oyama",
             desc: "一个本科计算机学生",
