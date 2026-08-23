@@ -124,7 +124,7 @@ export default defineConfig({
             author: "10dian",
             avatar: "http://img.10dianai.com/10dianai-w.jpg",
             color: "var(--color-blue)",
-          },         
+          },
           {
             url: "https://mahiro.uk/",
             title: "Smirnova Oyama",
