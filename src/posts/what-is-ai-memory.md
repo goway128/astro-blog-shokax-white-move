@@ -4,7 +4,7 @@ date: 2026-08-29
 description: AI Memory 由应用负责保存、筛选和取回信息，再把相关内容交给模型。这篇说明短期记忆、长期记忆、用户画像与语义检索的差别，以及错误记忆为什么难处理。
 tags: [AI Memory, LLM, Agent]
 categories: [科技, AI]
-cover: ../assets/images/cover-13.avif
+cover: ../assets/images/cover-16.avif
 draft: false
 ---
 
