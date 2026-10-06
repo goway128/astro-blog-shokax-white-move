@@ -33,6 +33,7 @@ export function wrapCodeGroups(html: string): string {
   return html.replace(CODE_GROUP_PATTERN, (match, inner) => {
     const blocks = [...inner.matchAll(CODE_BLOCK_PATTERN)].map((m) => m.groups!.block);
     if (blocks.length === 0) return match;
+    if (inner.replace(CODE_BLOCK_PATTERN, "").trim()) return match;
 
     const tabs = blocks
       .map((block, i) => {

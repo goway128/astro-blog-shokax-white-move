@@ -2,6 +2,7 @@
 import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
 import { getT } from "@/i18n";
+import { toPostHref } from "@/toolkit/posts/url";
 
 interface Props {
   post: CollectionEntry<"posts">;
@@ -9,7 +10,7 @@ interface Props {
 
 const { post } = Astro.props;
 const t = getT();
-const postUrl = `/posts/${post.id}/`;
+const postUrl = toPostHref(post.id);
 const publicDescription =
   post.data.description || post.body?.slice(0, 300) || "";
 const lastCategory = post.data.categories?.at(-1);
@@ -36,7 +37,7 @@ const lastCategory = post.data.categories?.at(-1);
     <div class="meta-top">
       <span class="date">
         <i class="i-ri-calendar-line"></i>
-        {post.data.date.toLocaleDateString()}
+        {post.data.date.toLocaleDateString(undefined, { timeZone: "UTC" })}
       </span>
     </div>
 

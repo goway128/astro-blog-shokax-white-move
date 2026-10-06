@@ -34,6 +34,7 @@ const {
 
 function formatDate(d: Date): string {
   return d.toLocaleDateString(currentLocale, {
+    timeZone: "UTC",
     year: "numeric",
     month: "2-digit",
     day: "2-digit",

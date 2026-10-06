@@ -15,7 +15,7 @@ async function openSearchPanel(page: import("@playwright/test").Page) {
 test("@critical 搜索可命中公开文章", async ({ page }) => {
   const searchInput = await openSearchPanel(page);
 
-  await searchInput.fill(SEARCH_TERMS.publicPostTitle);
+  await searchInput.fill(SEARCH_TERMS.publicPostQuery);
 
   await expect
     .poll(async () => {
@@ -33,6 +33,8 @@ test("@critical 搜索结果排除加密文章", async ({ page }) => {
 
   await searchInput.fill(SEARCH_TERMS.encryptedPostTitle);
 
+  await expect(page.locator("pagefind-summary")).not.toHaveText("");
+
   await expect
     .poll(async () => {
       return page.locator(`pagefind-results a[href*="${POSTS.encryptedTest}"]`).count();
@@ -40,6 +42,8 @@ test("@critical 搜索结果排除加密文章", async ({ page }) => {
     .toBe(0);
 
   await searchInput.fill(SEARCH_TERMS.encryptedOnlyText);
+
+  await expect(page.locator("pagefind-summary")).not.toHaveText("");
 
   await expect
     .poll(async () => {

@@ -4,6 +4,7 @@ import IndexContent from "../components/IndexContent.astro";
 import Pagination from "../components/Pagination.astro";
 import { getCollection } from "astro:content";
 import themeConfig from "@/theme.config";
+import { toCategoryHref, toPostHref } from "@/toolkit/posts/url";
 
 // Fetch all posts
 const allPosts = await getCollection("posts");
@@ -70,11 +71,11 @@ const categories = Array.from(categoryMap.entries())
     cover: themeConfig.home?.selectedCategories?.find(
       (cat) => cat.name === name,
     )?.cover,
-    url: `/categories/${name}/`,
+    url: toCategoryHref(name),
     postCount: data.posts.length,
     posts: data.posts.slice(0, 6).map((p) => ({
       title: p.title,
-      url: `/posts/${p.slug}/`,
+      url: toPostHref(p.slug),
     })),
   }))
   .toSorted((a, b) => b.postCount - a.postCount);

@@ -23,8 +23,9 @@ export async function GET(context: APIContext) {
     site: context.site ?? "https://preview.astro.kaitaku.xyz",
     items: published.map((post) => ({
       title: post.data.title,
-      description:
-        post.data.description || (post.body ?? "").slice(0, 150).replace(/\s+/g, " ").trim(),
+      description: post.data.encrypted
+        ? "该文章已加密，请前往网站输入密码后查看。"
+        : post.data.description || (post.body ?? "").slice(0, 150).replace(/\s+/g, " ").trim(),
       pubDate: post.data.date,
       link: toPostHref(post.id),
       categories: post.data.categories ?? undefined,

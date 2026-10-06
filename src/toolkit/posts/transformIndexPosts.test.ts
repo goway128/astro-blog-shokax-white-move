@@ -89,7 +89,7 @@ describe("transformIndexPosts", () => {
       url: "/posts/folder/Hello%20World/",
       excerpt: body.slice(0, 300),
       category: "末级",
-      categoryUrl: "/categories/%E6%9C%AB%E7%BA%A7/",
+      categoryUrl: "/categories/%E7%88%B6%E7%BA%A7/%E6%9C%AB%E7%BA%A7/",
       wordCount: 301,
       readTime: 2,
       cover: "cover://test",

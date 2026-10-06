@@ -101,4 +101,11 @@ describe("themeConfig", () => {
     expect(config.diagnostics?.suppressFsWatcherMaxListenersWarning).toBe(false);
     expect(DEFAULT_THEME_CONFIG.diagnostics?.suppressFsWatcherMaxListenersWarning).toBe(true);
   });
+
+  it("falls back when pageSize is not a positive integer", () => {
+    for (const pageSize of [0, -1, 1.5, Number.NaN, Number.POSITIVE_INFINITY]) {
+      const config = defineConfig({ home: { pageSize } });
+      expect(config.home?.pageSize).toBe(DEFAULT_THEME_CONFIG.home?.pageSize);
+    }
+  });
 });

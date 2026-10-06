@@ -9,31 +9,34 @@ export async function getStaticPaths() {
   const allPosts = await getCollection("posts");
   const publishedPosts = allPosts.filter((post) => !post.data.draft);
 
-  // Collect all unique categories
-  const categorySet = new Set<string>();
+  const categoryPaths = new Map<string, string[]>();
   publishedPosts.forEach((post) => {
     const categories = post.data.categories || [];
-    categories.forEach((cat) => categorySet.add(cat));
+    categories.forEach((_cat, index) => {
+      const path = categories.slice(0, index + 1);
+      categoryPaths.set(path.join("\u0000"), path);
+    });
   });
 
   // Generate paths for each category
-  return Array.from(categorySet).map((category) => ({
-    params: { category },
-    props: { category },
+  return Array.from(categoryPaths.values()).map((categoryPath) => ({
+    params: { category: categoryPath.join("/") },
+    props: { categoryPath },
   }));
 }
 
-const { category } = Astro.props as { category: string };
+const { categoryPath } = Astro.props as { categoryPath: string[] };
+const category = categoryPath.at(-1) ?? "";
 const t = getT(currentLocale);
 
 // Get all published posts
 const allPosts = await getCollection("posts");
 const publishedPosts = allPosts.filter((post) => !post.data.draft);
 
-// Filter posts that belong to this category (at any level in hierarchy)
+// 仅匹配完整分类路径，避免不同父分类下的同名子分类互相合并。
 const postsInCategory = publishedPosts.filter((post) => {
   const categories = post.data.categories || [];
-  return categories.includes(category);
+  return categoryPath.every((segment, index) => categories[index] === segment);
 });
 
 // Sort posts by date ascending (older first, matching old project)
@@ -42,24 +45,7 @@ const sortedPosts = postsInCategory.toSorted(
 );
 
 // Build parent categories breadcrumb
-function getParentCategories(categoryName: string): string[] {
-  const parents: string[] = [];
-  for (const post of publishedPosts) {
-    const categories = post.data.categories || [];
-    const index = categories.indexOf(categoryName);
-    if (index > 0) {
-      // Found the category, get all parents
-      for (let i = 0; i < index; i++) {
-        if (!parents.includes(categories[i])) {
-          parents.push(categories[i]);
-        }
-      }
-    }
-  }
-  return parents;
-}
-
-const parentCategories = getParentCategories(category);
+const parentCategories = categoryPath.slice(0, -1);
 
 // Group posts by their full subcategory path for rendering sections
 interface PostDisplay {
@@ -72,7 +58,7 @@ const postDisplays: PostDisplay[] = [];
 
 sortedPosts.forEach((post) => {
   const categories = post.data.categories || [];
-  const currentIndex = categories.indexOf(category);
+  const currentIndex = categoryPath.length - 1;
 
   if (currentIndex >= 0) {
     // Build subcategory path (categories after current one)
@@ -90,8 +76,8 @@ sortedPosts.forEach((post) => {
 });
 
 function formatDate(date: Date): string {
-  const month = String(date.getMonth() + 1).padStart(2, "0");
-  const day = String(date.getDate()).padStart(2, "0");
+  const month = String(date.getUTCMonth() + 1).padStart(2, "0");
+  const day = String(date.getUTCDate()).padStart(2, "0");
   return `${month}-${day}`;
 }
 
@@ -105,10 +91,12 @@ let currentSlug = "c";
       <h2 class="item header">
         <a href="/categories/">{t("category.all")}</a>
         {
-          parentCategories.map((parent) => (
+          parentCategories.map((parent, index) => (
             <>
               <small>/</small>
-              <a href={toCategoryHref(parent)}>{parent}</a>
+              <a href={toCategoryHref(parentCategories.slice(0, index + 1))}>
+                {parent}
+              </a>
             </>
           ))
         }
@@ -133,7 +121,9 @@ let currentSlug = "c";
                 <h3 class="item section">
                   {subcategoryPath.map((cat, index) => (
                     <>
-                      <a href={toCategoryHref(cat)}>{cat}</a>
+                      <a href={toCategoryHref([...categoryPath, ...subcategoryPath.slice(0, index + 1)])}>
+                        {cat}
+                      </a>
                       {index < subcategoryPath.length - 1 && <small>/</small>}
                     </>
                   ))}

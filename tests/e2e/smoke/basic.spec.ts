@@ -10,9 +10,9 @@ test("@smoke 首页、分页与文章页面可访问", async ({ page }) => {
   expect(page2Response?.ok()).toBeTruthy();
   await expect(page).toHaveURL(ROUTES.page2);
 
-  const postResponse = await page.goto(POSTS.helloWorld);
+  const postResponse = await page.goto(POSTS.publicPost);
   expect(postResponse?.ok()).toBeTruthy();
-  await expect(page.locator("article.post h1.title")).toHaveText("Hello World!");
+  await expect(page.locator("article.post h1.title")).toHaveText("我的第一篇博客");
 });
 
 test("@smoke 搜索面板可打开并通过 Escape 关闭", async ({ page }) => {

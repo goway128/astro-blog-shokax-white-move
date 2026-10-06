@@ -44,6 +44,15 @@ test("@regression 加密文章密码链路：错误提示、正确解密、刷�
   await expect(page.getByText("这是一篇加密文章的测试内容。", { exact: true })).toBeVisible();
   await expect(passwordInput).not.toBeVisible();
 
+  const encryptedTabs = page.locator(".encrypted-content .tabs");
+  await expect(encryptedTabs.getByRole("tab")).toHaveCount(2);
+  await encryptedTabs.getByRole("tab", { name: /第二个/ }).click();
+  await expect(encryptedTabs.getByRole("tabpanel", { name: /第二个/ })).toBeVisible();
+
+  const encryptedQuiz = page.locator(".encrypted-content .quiz-item.single");
+  await encryptedQuiz.locator('.quiz-option[data-correct="true"]').click();
+  await expect(encryptedQuiz).toHaveClass(/show/);
+
   await expect
     .poll(async () => {
       return page.evaluate(() => {
@@ -66,7 +75,7 @@ test("@critical 搜索命中后可点击结果跳转到对应文章", async ({ p
   await expect(searchDialog).toBeVisible();
   await expect(searchInput).toBeVisible();
 
-  await searchInput.fill(SEARCH_TERMS.publicPostTitle);
+  await searchInput.fill(SEARCH_TERMS.publicPostQuery);
 
   const firstResult = page
     .locator("pagefind-results a", {
@@ -175,7 +184,7 @@ test("@regression 主题切换后跨页面导航与刷新仍保持", async ({ pa
     })
     .toBe(toggledTheme ?? null);
 
-  await page.goto(POSTS.helloWorld);
+  await page.goto(POSTS.publicPost);
   await expect
     .poll(async () => {
       return page.evaluate(() => {

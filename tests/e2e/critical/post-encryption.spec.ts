@@ -5,9 +5,23 @@ test("@critical 加密文章具备 noindex 与 Pagefind 排除标记", async ({ 
   const response = await page.goto(POSTS.encryptedTest);
   expect(response?.ok()).toBeTruthy();
 
+  const html = await response!.text();
+  expect(html).not.toContain("这是一篇加密文章的测试内容");
+  expect(html).not.toContain("这篇文章使用了 AES-GCM");
+
   await expect(page.locator('meta[name="robots"][content*="noindex"]')).toHaveCount(1);
   await expect(page.locator('div.article.wrap[data-pagefind-ignore="all"]')).toBeVisible();
   await expect(page.locator("article.post[data-pagefind-body='false']")).toBeVisible();
+});
+
+test("@critical RSS 不泄漏加密文章正文", async ({ request }) => {
+  const response = await request.get("/rss.xml");
+  expect(response.ok()).toBeTruthy();
+
+  const xml = await response.text();
+  expect(xml).toContain("加密文章测试");
+  expect(xml).not.toContain("这是一篇加密文章的测试内容");
+  expect(xml).not.toContain("这篇文章使用了 AES-GCM");
 });
 
 test("@critical 加密文章错误密码提示且正确密码可解锁", async ({ page }) => {

@@ -1,4 +1,6 @@
 ---
+import { toPostHref } from "@/toolkit/posts/url";
+
 interface SimilarPostItem {
   slug: string;
   title: string;
@@ -38,7 +40,7 @@ const visiblePosts = posts
       <ul class="ai-similar-posts__list">
         {visiblePosts.map((item) => (
           <li class="ai-similar-posts__item">
-            <a href={`/posts/${item.slug}/`} class="text-color">
+            <a href={toPostHref(item.slug)} class="text-color">
               <span class="ai-similar-posts__name">{item.title}</span>
               <span class="ai-similar-posts__score text-grey-5">
                 相似度 {Math.round(item.score * 100)}%

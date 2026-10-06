@@ -57,6 +57,25 @@ import Font from "vite-plugin-font";
 import PlayformInline from "@playform/inline";
 import { installProcessWarningFilter } from "./src/toolkit/suppressWatcherWarning";
 import themeConfig from "./src/theme.config.ts";
+import { readdirSync, readFileSync } from "node:fs";
+import { extname, relative, resolve } from "node:path";
+
+const postsRoot = resolve("src/posts");
+const encryptedPostUrls = new Set(
+  readdirSync(postsRoot, { recursive: true })
+    .filter((entry) => [".md", ".mdx"].includes(extname(String(entry))))
+    .filter((entry) => {
+      const content = readFileSync(resolve(postsRoot, String(entry)), "utf8");
+      const frontmatter = /^---\s*([\s\S]*?)\s*---/.exec(content)?.[1] ?? "";
+      return /^encrypted:\s*true\s*$/m.test(frontmatter);
+    })
+    .map((entry) => {
+      const id = relative(postsRoot, resolve(postsRoot, String(entry)))
+        .replaceAll("\\", "/")
+        .replace(/\.mdx?$/i, "");
+      return new URL(`/posts/${id}/`, "https://goway0128.top").toString();
+    }),
+);
 
 if (themeConfig.diagnostics?.suppressFsWatcherMaxListenersWarning !== false) {
   installProcessWarningFilter();
@@ -84,7 +103,9 @@ export default defineConfig({
         customElement: true,
       },
     }),
-    sitemap(),
+    sitemap({
+      filter: (page) => !page.endsWith("/random/") && !encryptedPostUrls.has(page),
+    }),
     hyacinePlugin(),
     mdx(),
     PlayformInline({

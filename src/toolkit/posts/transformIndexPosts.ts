@@ -100,7 +100,8 @@ export function transformIndexPosts(
   return postList.map((post) => {
     const wordCount = countWords(post.body || "");
     const readTime = calculateReadTime(wordCount, wordsPerMinute);
-    const lastCategory = post.data.categories?.at(-1);
+    const categoryPath = post.data.categories ?? [];
+    const lastCategory = categoryPath.at(-1);
     const aiSummary = useAiExcerpt ? aiSummaries?.get(post.id) : undefined;
 
     return {
@@ -111,7 +112,7 @@ export function transformIndexPosts(
       excerpt: getExcerpt(post, encryptedExcerpt, excerptLength, aiSummary),
       cover: resolveCover?.(post),
       category: lastCategory,
-      categoryUrl: lastCategory ? toCategoryHref(lastCategory) : undefined,
+      categoryUrl: lastCategory ? toCategoryHref(categoryPath) : undefined,
       wordCount,
       readTime,
     };

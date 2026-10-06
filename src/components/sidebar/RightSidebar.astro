@@ -8,6 +8,7 @@ import {
 } from "@/toolkit/ui/rightSidebar";
 import SidebarCalendarPlaceholder from "./SidebarCalendarPlaceholder.astro";
 import AnnouncementContent from "@/content/announcement.md";
+import { toPostHref } from "@/toolkit/posts/url";
 
 interface Props {
   config?: {
@@ -71,7 +72,7 @@ const shuffledPosts = sampledPost
   ? [
       {
         id: sampledPost.id,
-        href: `/posts/${sampledPost.id}/`,
+        href: toPostHref(sampledPost.id),
         title: sampledPost.data.title,
         description:
           sampledPost.data.description || String(sampledPost.body || ""),

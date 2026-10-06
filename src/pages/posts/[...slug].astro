@@ -325,6 +325,9 @@ const postMeta = {
   wordCount,
   readTime,
 };
+const pageDescription = isEncrypted
+  ? "该文章已加密，请输入密码后查看。"
+  : post.data.description || post.body?.slice(0, 150).replace(/\s+/g, " ");
 ---
 
 <Layout
@@ -339,8 +342,7 @@ const postMeta = {
   <Fragment slot="head">
     <meta
       name="description"
-      content={post.data.description ||
-        post.body?.slice(0, 150).replace(/\s+/g, " ")}
+      content={pageDescription}
     />
     {/* 加密文章添加 noindex */}
     {isEncrypted && <meta name="robots" content="noindex, nofollow" />}

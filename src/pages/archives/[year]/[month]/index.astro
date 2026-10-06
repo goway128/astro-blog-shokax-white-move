@@ -54,8 +54,8 @@ const { year, month, posts } = Astro.props as {
 
 // Helper to format date
 function formatDate(date: Date): string {
-  const m = String(date.getMonth() + 1).padStart(2, "0");
-  const day = String(date.getDate()).padStart(2, "0");
+  const m = String(date.getUTCMonth() + 1).padStart(2, "0");
+  const day = String(date.getUTCDate()).padStart(2, "0");
   return `${m}-${day}`;
 }
 ---
@@ -96,7 +96,7 @@ function formatDate(date: Date): string {
                     <>
                       {catIndex === post.data.categories!.length - 1 && (
                         <span>
-                          <a href={toCategoryHref(cat)}>{cat}</a>
+                           <a href={toCategoryHref(post.data.categories!)}>{cat}</a>
                         </span>
                       )}
                     </>

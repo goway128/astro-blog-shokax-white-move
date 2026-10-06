@@ -1,4 +1,4 @@
-import i18next from "i18next";
+import { createInstance } from "i18next";
 import themeConfig from "@/theme.config";
 import { DEFAULT_LOCALE, resolveLocale, type ResolvedLocale } from "@/toolkit/i18n/resolveLocale";
 
@@ -22,41 +22,28 @@ const resources = {
 // Get current locale from theme config
 export const currentLocale = resolveLocale(themeConfig.locale);
 
+const i18next = createInstance();
+await i18next.init({
+  lng: currentLocale,
+  fallbackLng: DEFAULT_LOCALE,
+  resources,
+  interpolation: {
+    escapeValue: false,
+  },
+});
+
 /**
  * Initialize i18n with the locale from theme config
  */
-export async function initI18n(locale: Locale = DEFAULT_LOCALE) {
-  if (!i18next.isInitialized) {
-    await i18next.init({
-      lng: locale,
-      fallbackLng: DEFAULT_LOCALE,
-      resources,
-      interpolation: {
-        escapeValue: false, // React/Astro already handles escaping
-      },
-    });
-  } else if (i18next.language !== locale) {
-    await i18next.changeLanguage(locale);
-  }
+export async function initI18n(_locale: Locale = currentLocale) {
   return i18next;
 }
 
 /**
  * Get translation function for the configured locale
  */
-export function getT(locale: Locale = DEFAULT_LOCALE) {
-  if (!i18next.isInitialized || i18next.language !== locale) {
-    // Synchronous init for SSR predictability
-    void i18next.init({
-      lng: locale,
-      fallbackLng: DEFAULT_LOCALE,
-      resources,
-      interpolation: {
-        escapeValue: false,
-      },
-    });
-  }
-  return i18next.t.bind(i18next);
+export function getT(locale: Locale = currentLocale) {
+  return i18next.getFixedT(locale);
 }
 
 /**
