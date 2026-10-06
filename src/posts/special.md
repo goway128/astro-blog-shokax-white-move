@@ -5,7 +5,6 @@ description: 密码是某人的QQ号呢
 tags: [随笔, 回忆]
 categories: [日记]
 cover: ../assets/images/cover-6.avif
-draft: true
 encrypted: true
 password: "3537246387"
 ---
