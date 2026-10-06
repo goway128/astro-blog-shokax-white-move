@@ -1,13 +1,13 @@
 ---
 title: 随笔
 date: 2026-10-07
-description: (密码是某人的QQ号呢)
+description: 密码是某人的QQ号呢
 tags: [随笔, 回忆]
 categories: [日记]
 cover: ../assets/images/cover-6.avif
 draft: true
 encrypted: true
-password: 3537246387       
+password: "3537246387"
 ---
 
 那天晚上和之前的几百个晚上没什么区别。
